@@ -1,0 +1,58 @@
+.example-card {
+    max-width: 500px;
+  }
+  
+  .button-row {
+    margin: 10px 0;
+  }
+
+  .center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+ .admin-header{
+     background-color: white;
+ }
+ .navbar{
+    z-index:+1;
+    font-family: 'Anton', sans-serif;
+    position: sticky;
+
+}
+ @media only screen and (min-width: 768px) {
+    #burguer{
+        height: 30px;
+        width: 30px;
+        align-content: center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #burguer{
+        height: 0px;
+        width: 0px;
+    }
+}
+
+
+@media only screen and (min-width: 769px) {
+    .header{
+        height: 180px;
+        width:100%;
+        padding-bottom: 50px;
+        padding-bottom: 0px;
+        background-color: #343a40;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header{
+        height: 180px;
+        width:100%;
+        padding-bottom: 50px;
+        padding-bottom: 0px;
+        background-color: #343a40;
+    }
+}

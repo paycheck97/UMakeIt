@@ -1,0 +1,188 @@
+
+ 
+  <div class="sticky-top">
+    <div class="header">
+      <a href="./admin"><img class="center-block" src="/assets/logo.png" alt="logo"></a>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
+        <button  (click)="isCollapsed=!isCollapsed" class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div [collapse]= "!isCollapsed" class="collapse navbar-collapse" id="navbarNavDropdown">
+            <a class="navbar-brand"><img src="/assets/burguer.png" alt="img" id="burguer" width="30" height="30"></a>
+            <div >
+              <ul  class="navbar-nav navbar-left" style="margin-left: 0px;">
+                  <li class="nav-item active">
+                    <a class="nav-link" routerLink="/admin">Home</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" routerLink="/boards">manejar</a>
+                  </li>
+              </ul>
+      
+            </div>
+            </div>
+        
+    </nav>
+  </div>
+  <div style="text-align:center">
+    <head>
+      <title>Login Form</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+  </head>
+<body>
+    <style>
+      .navbar{
+        background-color:darkred;
+        height: 60px;
+        position: sticky;
+        top: 0;
+        font-family: 'Anton';
+      }
+      .navbar-brand{
+        color: white;
+        font-size: 30px;
+        font-family: 'Anton';
+        
+      }
+        .form-sign-in {
+            position:static;
+            height: 30vh;
+            width: 30vw;
+            
+            z-index: 10000;
+            background-color:khaki;
+            text-align: center;
+            margin-left: 22%;
+            min-width: 120px;
+            padding: 1vw;
+            
+        }
+        
+        .form-sign-in1 {
+            
+            height: 52vh;
+            width: 40vw;
+            margin-bottom: 55%;
+            background-color:khaki;
+            text-align: center;
+            margin-left: 30%;
+            min-width: 120px;
+            padding: 1vw;
+            
+        }
+
+
+        .he2{
+          background-size: cover;
+          color: white;
+          height: 400px;
+          text-align: center;
+          padding-top: 5%;
+          margin: 0;
+          
+        }
+    
+        .btn-primary{
+            height: 4vw;
+            width: 10vw;
+            text-align: center;
+            background-color: darkred;
+            font-size: 1.5vw;
+            margin-left: 33%;
+            min-width: 50px;
+        }
+
+        .btn-primary2{
+            height: 4vw;
+            width: 10vw;
+            text-align: center;
+            background-color: darkred;
+            font-size: 1.5vw;
+            margin-left: 37%;
+            min-width: 50px;
+            margin-top: 5%;
+            color: white;
+        }
+    
+        .form-control {
+            
+            
+            right: 0;
+            
+            margin-left: 0;
+            height: 100%;
+            width: 28vw;
+            text-align: center;
+            font-size: 10px;
+        }
+        
+    
+    </style>
+    <h2 class="he2"> 
+
+        <div class="form-sign-in1">
+            <div class="button-row">
+                <a mat-fab color="secondary" (click)="boardsDetails()"><mat-icon>arrow_back</mat-icon></a>
+              </div>
+              <form [formGroup]="boardsForm" (ngSubmit)="onFormSubmit(boardsForm.value)">
+                <mat-form-field class="form-control">
+                  <input matInput placeholder="Email" formControlName="title"
+                         [errorStateMatcher]="matcher">
+                  <mat-error>
+                    <span *ngIf="!boardsForm.get('title').valid && boardsForm.get('title').touched">Please enter email</span>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-control">
+                  <textarea matInput placeholder="Username" formControlName="description"
+                         [errorStateMatcher]="matcher"></textarea>
+                  <mat-error>
+                    <span *ngIf="!boardsForm.get('description').valid && boardsForm.get('description').touched">Please enter Username</span>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-control">
+                  <input matInput placeholder="Password" formControlName="author"
+                         [errorStateMatcher]="matcher">
+                  <mat-error>
+                    <span *ngIf="!boardsForm.get('author').valid && boardsForm.get('author').touched">Please enter new password</span>
+                  </mat-error>
+                </mat-form-field>
+                <div class="button-row">
+                  <button type="submit" [disabled]="!boardsForm.valid" mat-fab color="primary" ><mat-icon>save</mat-icon></button>
+                </div>
+              </form>
+            
+          </div>
+    </h2>
+
+    <div class="card-group">
+        <div class="card ">
+          <div class="card-body text-center">
+            <p class="card-text"> Follow us on Facebook!</p>
+            <a href="#" class="fa fa-facebook"></a>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body text-center">
+              <p class="card-text"> Follow us on Instagram!</p>
+              <a href="#" class="fa fa-instagram"></a>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-body text-center">
+              <p class="card-text"> Follow us on Twitter!</p>
+              <a href="#" class="fa fa-twitter"></a>
+          </div>
+        </div>
+      </div>
+
+</body>
+
+</div>
+<div class="container" style="min-height:30px ; min-width:400px">
+
+</div>
+<footer class="footer1">
+    <p>&copy; All rights reserved for <i>Serresiete Inc.</i> 2018</p>
+</footer>

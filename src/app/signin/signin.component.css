@@ -1,0 +1,112 @@
+.navbar{
+    z-index:+1;
+    font-family: 'Anton', sans-serif;
+    position: sticky;
+
+}
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+.modal-body{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.he2{
+    background-image: url("../../assets/fotoStart.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 2.5em;
+    color: white;
+    height: 400px;
+    text-align: left;
+    font-family: 'Anton', sans-serif;
+    
+    margin: 0;
+    padding: 10%;
+    
+}
+
+.form-control {
+    
+    top: 50%;
+    right: 0;
+    bottom: 23vh;
+    left: 50vh;
+    height: 100%;
+    width: 28vw;
+    text-align: center;
+    font-size: 10px;
+}
+
+.footer1{
+    text-align: center;
+    margin:0;
+    height: 10%;
+    
+}
+
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 65px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.fa-facebook {
+    background: khaki;
+    color: darkred;
+}
+.fa-twitter {
+    background:khaki;
+    color:darkred;
+}
+.fa-instagram {
+    background:khaki;
+    color:darkred
+}
+
+@media only screen and (min-width: 768px) {
+    #burguer{
+        height: 30px;
+        width: 30px;
+        align-content: center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #burguer{
+        height: 0px;
+        width: 0px;
+    }
+}
+
+
+@media only screen and (min-width: 769px) {
+    .header{
+        height: 180px;
+        width:100%;
+        padding-bottom: 50px;
+        padding-bottom: 0px;
+        background-color: #343a40;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header{
+        height: 180px;
+        width:100%;
+        padding-bottom: 50px;
+        padding-bottom: 0px;
+        background-color: #343a40;
+    }
+}

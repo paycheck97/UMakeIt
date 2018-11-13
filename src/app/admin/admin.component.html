@@ -1,0 +1,125 @@
+<div class="sticky-top">
+  <div class="header">
+    <a href="./admin"><img class="center-block" src="/assets/logo.png" alt="logo"></a>
+  </div>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
+      <button  (click)="isCollapsed=!isCollapsed" class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div [collapse]= "!isCollapsed" class="collapse navbar-collapse" id="navbarNavDropdown">
+          <a class="navbar-brand"><img src="/assets/burguer.png" alt="img" id="burguer" width="30" height="30"></a>
+          <div >
+            <ul  class="navbar-nav navbar-left" style="margin-left: 0px;">
+                <li class="nav-item active">
+                  <a class="nav-link" routerLink="/admin">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" routerLink="/boards">Manejar</a>
+                </li>
+            </ul>
+    
+          </div>
+          </div>
+      
+  </nav>
+  <nav class="navbar navbar-default bg-danger" >
+    <div class="container-fluid">
+
+      <div class="navbar-header ">
+          <a class="navbar-brand" routerLink='/compras'>Pedidos</a>
+        
+            </div>
+              
+      </div>
+    
+      </nav>
+  <div class="admin-header">
+  <img class="admin-symbol" src="/assets/menu_symbol_editor.png" alt="editor" style="margin:auto;">
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-4" *ngFor="let plato of platos">
+      <div class="card">
+          <img class="card-img-top" src="{{plato.img}}">
+          <div class="card-block">
+              <p class="card-text">{{plato.name}}</p>
+              <ul class="list-group list-group-flush">
+                  <button (click)="disp(plato)" type="button" class="btn btn-secondary btn-s" *ngIf="plato.disp">Disponible</button>
+                  <button (click)="disp(plato)" type="button" class="btn btn-secondary btn-s bg-light" *ngIf="!plato.disp">No Disponible</button>
+                  <button type="button" class="btn btn-secondary btn-md">Details</button>
+                        <mat-card-actions>
+                            <a mat-fab color="primary" [routerLink]="['/editar/', plato.key]"><mat-icon>edit</mat-icon></a>
+                          </mat-card-actions>
+              </ul>
+          </div>
+      </div>
+
+    </div>
+    
+      <div class = "card2">
+        <p>Agregar Producto</p>
+        <div class = "button-row">
+          <a mat-fab color = "primary" routerLink="/clave"><mat-icon>add</mat-icon></a>
+        </div>
+      </div>
+    
+  </div>
+  <style>
+    
+      .card-deck{
+        padding: 10px;
+      }
+      .interior{
+        background-color: white;
+        color: black;
+       
+      }
+      .btn-nav{
+             background-color:darkred;
+             border-color: white;
+              color: white;
+              font-size: 15px;
+              height: 40px;
+              justify-content: center;
+              
+          }
+          
+          .footer1{
+           text-align: center;
+           margin:0;
+            color: black;
+            height: 10%;
+            padding: 1px;
+          }
+          .navbar{
+          background-color:darkred;
+          height: 60px;
+          position: sticky;
+          top: 0;
+          font-family: 'Anton';
+        }
+        .navbar-brand{
+          color: white;
+          font-size: 30px;
+          font-family: 'Anton';
+          padding: 10px;
+          
+        }
+      .superior{
+        background-color: darkred;
+        color: white;
+       
+      }
+      .table{
+        border: white;
+        flex: 50%
+      }
+      .inferior{
+        background-color: lightslategrey;
+        
+      }
+      .bg-primary1{
+        background-color: khaki;
+      }
+    </style>
