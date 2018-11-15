@@ -1,102 +1,28 @@
-<app-navbar></app-navbar>
-<head>
-  <title>Shopping Cart</title>
-</head>
+<div class="sidenav bg-warning">
 
-<div class="card-deck">
-  <div class="card bg-primary1 bg-light" >
-    <div class="card-body text-center">
-      <div class="card-text">
-          <h3>Carrito de Compras</h3>
-          <table class="table">
-              <thead>
-                <tr class="superior">
-               
-                  <th>Producto</th>
-                  <th>Precio</th>
-                  <th>Cantidad</th>
-                  <th>Edit</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let list of products" class="interior">
-                    
-                    
-                    <td>{{list.product_name}}</td>
-                    <td>{{list.product_price}}</td>
-                    <td>
-                      {{list.product_quality}}
-                      <button class="btn btn-success btn-xs plus" (click)="add(list.product_id)"><i class="glyphicon glyphicon-plus"></i></button>
-                      <button class="btn btn-danger btn-xs minus" (click)="del(list.product_id)"><i class="glyphicon glyphicon-minus"></i></button>
-                    </td>
-                    <td>
-                      <button class="btn btn-danger btn-sm" (click)="delpopup(list.product_id)">BORRAR</button>
-                    </td>
-                  </tr>
-              </tbody>
-              <tfoot>
-                <tr class="inferior bg-info">
-                  <td>Precio Total</td>
-                  <td colspan="6" class="text-right">{{total | currency: '$' }}</td>
-                </tr>
-              </tfoot>
-            </table>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-
-              <input type="hidden" name="business" value="******@gmail.com">
-            
-              <input type="hidden" name="cmd" value="_xclick">
-            
-              <input type="hidden" name="item_name" value="Food">
-              <input type="hidden" name="amount" value={{total}}>
-              <input type="hidden" name="currency_code" value="USD">
-              <input type="image" name="submit" border="0"
-                src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
-                alt="Buy Now">
-              <img alt="" border="0" width="1" height="1"
-                src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-            
-            </form>
-        
-      
-      </div>
-    </div>
+    <table>
+      <tr>
+        <img src="/assets/cart.png" alt="cart">
+      </tr>
+      <tr>
+        <th> Producto</th>
+        <th> Precio</th>
+        <th> Cantidad</th>
+      </tr>
+      <tr *ngFor="let carro of carrito">
+        <td>{{carro.name}}</td>
+        <td>{{carro.price}}</td>
+        <td>
+            <select (change)="selectChangeHandler($event, carro)" class="form-control form-control-lg">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="0">0</option>
+              </select>
+        </td>
+      </tr>
+    </table>
   </div>
-  <div class="card bg-primary1 bg-muted">
-    <div class="card-body text-center">
-      <div class="card-text">
-        <h3>Compras Anteriores</h3>
-          <table class="table">
-              <thead>
-                <tr class="superior">
-               
-                  <th>Producto(s)</th>
-                  <th>Precio</th>
-                  <th>Fecha</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let list of productos2" class="interior">
-                      
-                    
-                    <td>
-                            {{list.producto_name1}}
-                            ({{list.producto_quality}})
-                    </td>
-                    <td>{{list.producto_price}}</td>
-                    <td>
-                      {{list.producto_id}}
-                    </td>
-                  
-                  </tr>
-              </tbody>
-             
-            </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer class="footer1">
-  <p>&copy; All rights reserved for <i>Serresiete Inc.</i> 2018</p>
-</footer>

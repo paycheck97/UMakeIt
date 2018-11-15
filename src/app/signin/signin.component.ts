@@ -12,6 +12,7 @@ export class SigninComponent implements OnInit {
   public password: string;
   public emailRe: string;
   public passwordRe: string;
+  error:any;
   constructor(public authService: AuthService, public router: Router) { }
 
   onSubmitSignIn() { { this.authService.loginEmail(this.email, this.password)
@@ -20,17 +21,18 @@ export class SigninComponent implements OnInit {
       this.router.navigate(['/dashboard']);
       
     })
-    .catch((err)=>
-    console.log(err)) } }
+    .catch((err)=> this.error = err);  }}
     onSubmitAddUser() { { this.authService.registerUser(this.emailRe, this.passwordRe)
       .then((res) =>{
         //agregar pop up de aceptar
       })
-      .catch((err)=>
-      console.log(err)) ; 
-      ;
-     } }
-
+      .catch((err)=> this.error = err);  }}
+     onSubmitGoogleLogin() { { this.authService.loginGoogle()
+      .then((res) =>{
+        console.log('Bien');
+        this.router.navigate(['/dashboard']);
+      })
+      .catch((err)=> this.error = err);  }}
 
   ngOnInit() {
   }
