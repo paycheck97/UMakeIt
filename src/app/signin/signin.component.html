@@ -1,121 +1,112 @@
 <div class="header">
-    <a href="#"><img class="center-block" src="/assets/logo.png" alt="logo"></a>
+  <a href="#"><img class="center-block" src="/assets/logo.png" alt="logo"></a>
 </div>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
-      <a class="navbar-brand"><img src="/assets/burguer.png" alt="img" id="burguer" width="30" height="30"></a>
-      <button  (click)="isCollapsed=!isCollapsed" class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div [collapse]= "!isCollapsed" class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul  class="navbar-nav navbar-left" style="margin-left: 0px;">
-            <li class="nav-item active">
-              <a class="nav-link" (click)="SignInModal.show()">Sign In</a>
-            </li>
-            <li class="nav-item active">
-                      <a class="nav-link" (click)="RegisterModal.show()">Register</a>
-            </li>
-        </ul>
+    <a class="navbar-brand"><img src="/assets/burguer.png" alt="img" id="burguer" width="30" height="30"></a>
+    <button  (click)="isCollapsed=!isCollapsed" class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [collapse]= "!isCollapsed" class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul  class="navbar-nav navbar-left" style="margin-left: 0px;">
+          <li class="nav-item active">
+            <a class="nav-link" (click)="SignInModal.show()">Sign In</a>
+          </li>
+          <li class="nav-item active">
+                    <a class="nav-link" (click)="RegisterModal.show()">Register</a>
+          </li>
+      </ul>
 
-      </div>
-      
+    </div>
+    
 </nav>
 
 <div style="text-align:center">
-<head>
-    <title>Login Form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-</head>
-<body>
-    <h2 class="he2"> </h2>
-    <div class="card-group bg-warning">
-        <div class="card bg-warning">
-          <div class="card-body text-center">
-            <p class="card-text"> Follow us on Facebook!</p>
-            <a href="#" class="fa fa-facebook"></a>
-          </div>
-        </div>
-        <div class="card bg-warning ">
-          <div class="card-body text-center">
-              <p class="card-text"> Follow us on Instagram!</p>
-              <a href="#" class="fa fa-instagram"></a>
-          </div>
-        </div>
-        <div class="card bg-warning ">
-          <div class="card-body text-center">
-              <p class="card-text"> Follow us on Twitter!</p>
-              <a href="#" class="fa fa-twitter"></a>
-          </div>
+
+  <title>Login Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <h2 class="he2"> </h2>
+  <div class="card-group bg-warning">
+      <div class="card bg-warning">
+        <div class="card-body text-center">
+          <p class="card-text"> Follow us on Facebook!</p>
+          <a href="#" class="fa fa-facebook"></a>
         </div>
       </div>
-      
-<div class="modal fade" bsModal #SignInModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-nested-name1">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title pull-left">Sign In</h4>
-          <button type="button" class="close pull-right" aria-label="Close" (click)="SignInModal.hide()">
-            <span aria-hidden="true">&times;</span>
-          </button>
+      <div class="card bg-warning ">
+        <div class="card-body text-center">
+            <p class="card-text"> Follow us on Instagram!</p>
+            <a href="#" class="fa fa-instagram"></a>
         </div>
-        <div class="modal-body">
-              <form  (submit)= "onSubmitSignIn()" #heroForm="ngForm">
+      </div>
+      <div class="card bg-warning ">
+        <div class="card-body text-center">
+            <p class="card-text"> Follow us on Twitter!</p>
+            <a href="#" class="fa fa-twitter"></a>
+        </div>
+      </div>
+    </div>
+    
+<div class="modal fade" bsModal #SignInModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-nested-name1">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Sign In</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="SignInModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form  (submit)= "onSubmitSignIn()" #heroForm="ngForm">
+              <div>
+                <span class="error" *ngIf="error" >{{error}}</span>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" class="form-control" placeholder="Email address" required [(ngModel)]="email" name="email" id="email">
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="password" name="password" id="password">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <button class="btn btn-lg btn-success btn-block" (click) = "onSubmitGoogleLogin()">Google Login</button>
+              </div>
+            </form>
+              <div>
+                <p style="text-align:center">Don´t have a user? </p>
+                <button type="button" class="btn btn-second" (click)="RegisterModal.show()" (click)="SignInModal.hide()">Create new user</button>
+              </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" bsModal #RegisterModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-nested-name1">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Registro</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="RegisterModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+              <form  (submit)= "onSubmitAddUser()">
                 <div>
+                  <span class="error" *ngIf="error" >{{error}}</span>
                   <label for="inputEmail" class="sr-only">Email address</label>
-                  <input type="email" class="form-control" placeholder="Email address" required [(ngModel)]="email" name="email" id="email">
+                  <input type="email" class="form-control" placeholder="Email address" required [(ngModel)]="emailRe" name="email">
                   <label for="inputPassword" class="sr-only">Password</label>
-                  <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="password" name="password" id="password">
-                  
-                  <div class="checkbox mb-3">
-                    <label>
-                      <input type="checkbox" value="remember-me" > Remember me
-                    </label>
-                  </div>
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                  <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="passwordRe" name="password">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="RegisterModal.hide()" (click)="SignInModal.show()">Register</button>
                 </div>
               </form>
-                <div>
-                  <p style="text-align:center">Don´t have a user? </p>
-                  <button type="button" class="btn btn-second" (click)="RegisterModal.show()" (click)="SignInModal.hide()">Create new user</button>
-                </div>
-        
-        </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="modal fade" bsModal #RegisterModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-nested-name1">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title pull-left">Registro</h4>
-          <button type="button" class="close pull-right" aria-label="Close" (click)="RegisterModal.hide()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-                <form  (submit)= "onSubmitAddUser()">
-                  <div>
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" class="form-control" placeholder="Email address" required [(ngModel)]="emailRe" name="email">
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="passwordRe" name="password">
-                    
-                    <div class="checkbox mb-3">
-                      <label>
-                        <input type="checkbox" value="remember-me" > Remember me
-                      </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="RegisterModal.hide()" (click)="SignInModal.show()">Register</button>
-                  </div>
-                </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
 
 </div>
 
 <footer class="footer1">
-    <p>&copy; All rights reserved for <i>Serresiete Inc.</i> 2018</p>
+  <p>&copy; All rights reserved for <i>Serresiete Inc.</i> 2018</p>
 </footer>

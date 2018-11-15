@@ -30,6 +30,17 @@ export class AuthService {
     return this.afAuth.authState.pipe(map(auth => auth));
   }
 
+  loginGoogle(){
+    return new Promise((resolve, reject) => {
+      let provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('profile');
+    provider.addScope('email');
+    this.afAuth.auth
+    .signInWithPopup(provider)
+      .then( userData => resolve(userData),
+      err => reject(err));
+  });
   
 
+}
 }

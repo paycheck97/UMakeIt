@@ -1,8 +1,8 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlatosService } from '../platos.service';
-import { Food } from '../dashboard/Food';
-import { FsService } from '../fs.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CarritoService } from '../carrito.service';
+import { Food } from '../models/food';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -15,19 +15,23 @@ export class DashboardComponent implements OnInit {
   selectedFood = '';
   platos: Food[];
 
-  constructor(private platosService:PlatosService, private fs: FsService, private route: ActivatedRoute, private router: Router,) { 
-    
-  }
 
+  constructor(private platosService:PlatosService, private carritoService: CarritoService) { }
 
   selectChangeHandler(event: any){
     this.selectedFood = event.target.value;
   }
- 
+
+
   disp(plato: Food){
     plato.disp = !plato.disp;
     this.platosService.updateFood(plato);
   }
+ 
+  addCarrito(plato: Food){
+    this.carritoService.addCarrito(plato);
+  }
+
   ngOnInit() {
     this.platosService.getPlatos().subscribe(food => {
       //console.log(platos);
@@ -35,5 +39,12 @@ export class DashboardComponent implements OnInit {
     });
     
   }
+
+
+
+
+
+
+
 
 }

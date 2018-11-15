@@ -4,4 +4,6 @@ export interface Food{
     img?:string;
     disp?:boolean;
     id: string;
+    cant?:number;
+
   }

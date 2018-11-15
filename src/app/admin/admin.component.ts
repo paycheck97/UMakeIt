@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlatosService } from '../platos.service';
-import {Food} from '../dashboard/Food';
+import {Food} from '../models/food';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FsService } from '../fs.service';
 

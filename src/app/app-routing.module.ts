@@ -10,16 +10,15 @@ import { BoardsDetailComponent } from "./boards-detail/boards-detail.component";
 import { BoardsEComponent } from "./boards-e/boards-e.component";
 import { BoardsEditComponent } from "./boards-edit/boards-edit.component";
 import {ClaveComponent} from "./clave/clave.component";
-
-
+import {CheckService} from './check.service';
 
 
 export const routes: Routes = [
   {path:"signin", component:SigninComponent},
   {path:"clave", component:ClaveComponent},
   {path:"compras", component:ComprasComponent},
-  {path:"carrito", component:CarritoComponent},
-  {path: "dashboard", component:DashboardComponent},
+  {path:"carrito", component:CarritoComponent, canActivate: [CheckService]},
+  {path: "dashboard", component:DashboardComponent, canActivate: [CheckService]},
   {path: "admin", component:AdminComponent},
   { path: '', redirectTo: '/signin', pathMatch: 'full'},
   {

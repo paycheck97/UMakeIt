@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/firestore";
-import { Food } from './dashboard/Food';
+import { Food } from './models/food';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
