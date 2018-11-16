@@ -12,39 +12,41 @@
 
 .modal-body{
     display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
 }
-
-
 
 .he2{
     background-image: url("../../assets/fotoStart.webp");
-    background-repeat: no-repeat;
     background-size: cover;
     font-size: 2.5em;
     color: white;
     height: 400px;
     text-align: left;
     font-family: 'Anton', sans-serif;
-    
     margin: 0;
     padding: 10%;
-    
 }
 
-.form-control {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    top: 50%;
-    right: 0;
-    bottom: 23vh;
-    left: 50vh;
-    height: 100%;
-    width: 28vw;
+.card{
+    background-color: #FFC300  ;
+    border: none;
+}
+
+
+::placeholder{
+    font-size: 20px;
+}
+input{
     text-align: center;
-    font-size: 10px;
+    font-size: 20px;
+    width: 100%;
+    padding: 15px 20px;
+    margin: 8px 0;
+    border: none;
 }
 
 .footer1{

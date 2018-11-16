@@ -1,28 +1,57 @@
-<div class="sidenav bg-warning">
 
-    <table>
-      <tr>
-        <img src="/assets/cart.png" alt="cart">
-      </tr>
-      <tr>
-        <th> Producto</th>
-        <th> Precio</th>
-        <th> Cantidad</th>
-      </tr>
-      <tr *ngFor="let carro of carrito">
-        <td>{{carro.name}}</td>
-        <td>{{carro.price}}</td>
-        <td>
-            <select (change)="selectChangeHandler($event, carro)" class="form-control form-control-lg">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="0">0</option>
-              </select>
-        </td>
-      </tr>
-    </table>
-  </div>
+<a  (click)="showModal()">Shopping Cart</a>
+
+<div *ngIf="!display; else elseBlock" class="invisible">
+
+</div>
+
+<!-- MODAL -->
+<ng-template #elseBlock>
+
+  <div id="myModal" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <table>
+            <tr>
+              <td>
+                <img src="/assets/cart.png" alt="cart" style="width:25px;height:25px;margin-right: 10px;">  
+              </td>
+              <th>
+                  <h3>Shopping  Cart</h3>
+              </th>
+            </tr>
+          </table>
+        </div>
+
+        <div class="modal-body">
+
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Plato</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Cantidad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let carro of carrito">
+                      <td>{{carro.name}}</td>
+                      <td>${{carro.price}}</td>
+                      <td><button class="masmenos" (click)="sub(carro)">&#10134;</button><span class="cantidad">{{carro.cant}}</span><button class="masmenos" (click)="add(carro)">&#10133;</button></td>
+                      <td><button (click)="borrarPlato(carro)">&#10060;</button></td>
+                    </tr>
+                  </tbody>
+                  
+                  <th>TOTAL: $ {{total()}}</th>
+                </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="showModal()">Close</button>
+        </div>
+      </div>
+    </div>
+
+</ng-template>
+
