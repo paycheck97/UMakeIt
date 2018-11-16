@@ -48,6 +48,7 @@ export class AdminComponent implements OnInit {
     plato.disp = !plato.disp;
     this.platosService.updateFood(plato);
   }
+
     
 
 

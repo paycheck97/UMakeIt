@@ -12,8 +12,11 @@ import { Food } from '../models/food';
 export class DashboardComponent implements OnInit {
   
   sortFood = 'Sort Food';
-  selectedFood = '';
+  selectedFood = 'Show All';
   platos: Food[];
+
+  aux: Food[];
+  
 
 
   constructor(private platosService:PlatosService, private carritoService: CarritoService) { }
@@ -32,19 +35,22 @@ export class DashboardComponent implements OnInit {
     this.carritoService.addCarrito(plato);
   }
 
+  filter(a: Food[]){
+    this.platos = [];
+    for(let i of a){
+      if(i.disp==true){
+        this.platos.push(i);
+      }
+    }
+  }
+
+
   ngOnInit() {
     this.platosService.getPlatos().subscribe(food => {
       //console.log(platos);
+      //this.filter(food);
       this.platos = food;
     });
     
   }
-
-
-
-
-
-
-
-
 }

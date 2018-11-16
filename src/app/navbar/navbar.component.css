@@ -32,6 +32,12 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 300px;
+
  }
 
 

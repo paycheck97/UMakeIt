@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-  <div>
+<div>
         <img id="menu_symbol" src="/assets/menu_symbol.png" alt="MENU" style="margin-bottom:50px;">
       </div>
     
@@ -7,7 +7,6 @@
     
       <div class="container">
           <select (change)="selectChangeHandler($event)" class="form-control form-control-lg">
-              <option value="Sort Food">Sort Food</option>
               <option value="Show All">Show All</option>
               <option value="Pizza">Pizza</option>
               <option value="Pad Thai">Pad Thai</option>
@@ -18,8 +17,8 @@
     
     
           <div class="row">
-            <div class="col-xl-4" *ngFor="let plato of platos">
-              <div class="card" *ngIf="(selectedFood==plato.name || selectedFood=='Show All') && plato.disp">
+            <div class="col-xl-4" *ngFor="let plato of platos" [class.invisible]="!(selectedFood==plato.name || selectedFood=='Show All')" [class.invisible2]="!plato.disp">
+              <div class="card">
                   <img class="card-img-top" src="{{plato.img}}">
                   <div class="card-block">
                       <p class="card-text">{{plato.name}}</p>

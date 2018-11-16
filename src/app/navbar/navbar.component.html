@@ -17,7 +17,7 @@
           <a class="nav-link" routerLink="/dashboard">Home</a>
           </li>
           <li class="nav-item active">
-              <a class="nav-link"  (click) = "CarritoModal.show()">Cart</a>
+              <app-carrito></app-carrito>
           </li>
           <li class="nav-item active">
                 <a class="nav-link"  (click) = "parentModal.show()">Logout</a>
@@ -53,44 +53,5 @@
                 </div>
               </div>
 
-              <div class="modal fade" bsModal #CarritoModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-nested-name1">
-                  <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title pull-left">Shopping Cart</h4>
-                        <button type="button" class="close pull-right" aria-label="Close" (click)="CarritoModal.hide()">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                          <table>
-                              <tr>
-                                <img src="/assets/cart.png" alt="cart">
-                              </tr>
-                              <tr>
-                                <th> Producto</th>
-                                <th> Precio</th>
-                                <th> Cantidad</th>
-                              </tr>
-                              <tr *ngFor="let carro of carrito">
-                                <td>{{carro.name}}</td>
-                                <td>{{carro.price}}</td>
-                                <td>
-                                    <select (change)="selectChangeHandler($event, carro)" class="form-control form-control-lg">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="0">0</option>
-                                      </select>
-                                </td>
-                              </tr>
-                            </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                
              

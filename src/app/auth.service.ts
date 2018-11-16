@@ -39,8 +39,6 @@ export class AuthService {
     .signInWithPopup(provider)
       .then( userData => resolve(userData),
       err => reject(err));
-  });
+  });}
   
-
-}
 }
