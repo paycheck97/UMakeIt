@@ -3,6 +3,7 @@ export interface Pedidos {
     price?:number;
     id: string;
     cant?:number;
-    date?:string;
+    info?:string;
     mail?:string;
+    date:string;
 }

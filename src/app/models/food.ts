@@ -5,5 +5,5 @@ export interface Food{
     disp?:boolean;
     id: string;
     cant?:number;
-    desc?:String;
+    info?:string;
   }
