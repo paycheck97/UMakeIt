@@ -1,9 +1,9 @@
-export interface Food{
+export interface Pedidos {
     name?:string;
     price?:number;
-    img?:string;
-    disp?:boolean;
     id: string;
     cant?:number;
     info?:string;
-  }
+    mail?:string;
+    date:string;
+}
