@@ -87,7 +87,8 @@ import { ClaveComponent } from './clave/clave.component';
     FormsModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
-    PopoverModule.forRoot()
+    PopoverModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
