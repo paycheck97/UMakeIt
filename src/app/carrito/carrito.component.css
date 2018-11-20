@@ -1,25 +1,80 @@
-table {
-    position: fixed;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: 30px;
-    color: black;
-    background: white;
-    height: auto;
-    width: 200px;
-    margin-left: 10px;
-    top: 50%;
-}
-img{
-    width: 30px;
-    height: 30px;
-    background-color: black;
-}
 
-.sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 220px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    top: 0; /* Stay at the top */
-    right: 0;
-    background-color: #343a40
-}
+    /* The Modal (background) */
+    .modal {
+        margin-top: 15%;
+        margin-left: 30%;
+        display: block; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 700px; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+    }
+    
+    .masmenos{
+        font-size: 10px;
+    }
+    
+    #myBtn{
+        cursor: pointer;
+        padding: 0;
+        font-size: 30px;
+    }
+    
+    .cantidad{
+        padding: 10px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+    
+    /* Modal Header */
+    .modal-header {
+        display: inline;
+        font-family: Anton, serif;
+        background-color: black;
+        color: white;
+        padding: 2px 16px;
+    }
+    
+    .modal-header img{
+        padding:0;
+        margin-left: 0px;
+    }
+    
+    .modal-header h3{
+        padding:0;
+        margin-right: 0px;
+    }
+    
+    .table{
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+    }
+    
+    
+    /* Modal Footer */
+    .modal-footer {
+        background-color: black;
+    }
+    
+    /* Modal Content */
+    .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        animation-name: animatetop;
+        animation-duration: 0.4s
+    }
+    
+    /* Add Animation */
+    @keyframes animatetop {
+        from {top: -300px; opacity: 0}
+        to {top: 0; opacity: 1}
+    }

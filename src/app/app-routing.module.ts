@@ -4,6 +4,7 @@ import { SigninComponent } from './signin/signin.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ComprasComponent } from './compras/compras.component';
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {DashAdminComponent} from "./dash-admin/dash-admin.component";
 import {AdminComponent} from "./admin/admin.component";
 import { BoardsComponent } from "./boards/boards.component";
 import { BoardsDetailComponent } from "./boards-detail/boards-detail.component";
@@ -19,6 +20,7 @@ export const routes: Routes = [
   {path:"compras", component:ComprasComponent},
   {path:"carrito", component:CarritoComponent, canActivate: [CheckService]},
   {path: "dashboard", component:DashboardComponent, canActivate: [CheckService]},
+  {path: "dash-admin", component:DashAdminComponent},
   {path: "admin", component:AdminComponent},
   { path: '', redirectTo: '/signin', pathMatch: 'full'},
   {

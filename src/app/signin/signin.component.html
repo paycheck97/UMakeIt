@@ -20,27 +20,21 @@
     
 </nav>
 
-<div style="text-align:center">
-
-  <title>Login Form</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
   <h2 class="he2"> </h2>
-  <div class="card-group bg-warning">
-      <div class="card bg-warning">
+  <div class="card-group" style="background-color:#FFC300;">
+      <div class="card">
         <div class="card-body text-center">
           <p class="card-text"> Follow us on Facebook!</p>
           <a href="#" class="fa fa-facebook"></a>
         </div>
       </div>
-      <div class="card bg-warning ">
+      <div class="card">
         <div class="card-body text-center">
             <p class="card-text"> Follow us on Instagram!</p>
             <a href="#" class="fa fa-instagram"></a>
         </div>
       </div>
-      <div class="card bg-warning ">
+      <div class="card">
         <div class="card-body text-center">
             <p class="card-text"> Follow us on Twitter!</p>
             <a href="#" class="fa fa-twitter"></a>
@@ -60,7 +54,9 @@
       <div class="modal-body">
             <form  (submit)= "onSubmitSignIn()" #heroForm="ngForm">
               <div>
-                <span class="error" *ngIf="error" >{{error}}</span>
+                <div class="error bg-warning text-center" style="color: white;" >
+                    <span *ngIf="error" >{{error}}</span>
+                </div>
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" class="form-control" placeholder="Email address" required [(ngModel)]="email" name="email" id="email">
                 <label for="inputPassword" class="sr-only">Password</label>
@@ -91,7 +87,9 @@
       <div class="modal-body">
               <form  (submit)= "onSubmitAddUser()">
                 <div>
-                  <span class="error" *ngIf="error" >{{error}}</span>
+                  <div class="error bg-dark">
+                    <span *ngIf="error" >{{error}}</span>
+                  </div>
                   <label for="inputEmail" class="sr-only">Email address</label>
                   <input type="email" class="form-control" placeholder="Email address" required [(ngModel)]="emailRe" name="email">
                   <label for="inputPassword" class="sr-only">Password</label>
@@ -102,9 +100,6 @@
       </div>
     </div>
   </div>
-</div>
-
-
 </div>
 
 <footer class="footer1">
