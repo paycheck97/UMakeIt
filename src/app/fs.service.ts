@@ -142,7 +142,7 @@ export class FsService {
             name: data.name,
             price: data.price,
             disp: data.disp,
-            id: data.id,
+            img: data.img,
           });
         });
         observer.next(comidas);
@@ -159,7 +159,7 @@ export class FsService {
           name: data.name,
             price: data.price,
             disp: data.disp,
-            id: data.id,
+            img: data.img,
         });
       });
     });

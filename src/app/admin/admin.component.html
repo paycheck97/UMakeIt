@@ -13,6 +13,10 @@
                           <button (click)="disp(plato)" type="button" class="btn btn-secondary btn-s" *ngIf="plato.disp">Disponible</button>
                           <button (click)="disp(plato)" type="button" class="btn btn-secondary btn-s bg-light" *ngIf="!plato.disp">No Disponible</button>
                           <button type="button" class="btn btn-secondary btn-md">Details</button>
+                          <mat-card-actions>
+                            <a mat-fab color="primary" [routerLink]="['/platose/', plato.id]"><mat-icon>edit</mat-icon></a>
+                          <a mat-fab color="warn" (click)="deletePlato(plato.id)"><mat-icon>delete</mat-icon></a>
+                        </mat-card-actions>
                 </ul>
             </div>
         </div>
@@ -22,7 +26,9 @@
       <div class = "card2">
         <p>Agregar Producto</p>
         <div class = "button-row">
+            <mat-card-actions>
           <a mat-fab color = "primary" routerLink="/clave"><mat-icon>add</mat-icon></a>
+        </mat-card-actions>
         </div>
       </div>
 </div>

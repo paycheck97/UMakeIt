@@ -42,6 +42,7 @@ import { BoardsEComponent } from './boards-e/boards-e.component';
 import {AuthService} from './auth.service';
 import { ClaveComponent } from './clave/clave.component';
 import { DashAdminComponent } from './dash-admin/dash-admin.component';
+import { PlatoseComponent } from './platose/platose.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { DashAdminComponent } from './dash-admin/dash-admin.component';
     BoardsEditComponent,
     ClaveComponent,
     DashAdminComponent,
+    PlatoseComponent,
     
   ],
   imports: [

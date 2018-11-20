@@ -11,6 +11,7 @@ import { BoardsDetailComponent } from "./boards-detail/boards-detail.component";
 import { BoardsEComponent } from "./boards-e/boards-e.component";
 import { BoardsEditComponent } from "./boards-edit/boards-edit.component";
 import {ClaveComponent} from "./clave/clave.component";
+import {PlatoseComponent} from "./platose/platose.component";
 import {CheckService} from './check.service';
 
 
@@ -32,6 +33,11 @@ export const routes: Routes = [
     path: 'boards-details/:id',
     component: BoardsDetailComponent,
     data: { title: 'Boards Details' }
+  },
+  {
+    path: 'platose/:id',
+    component: PlatoseComponent,
+    data: { title: 'Editar Platos' }
   },
   {
     path: 'boards-e',
