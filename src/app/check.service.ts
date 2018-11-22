@@ -12,7 +12,7 @@ import * as firebase from 'firebase/app'
   providedIn: 'root'
 })
 export class CheckService implements CanActivate{
-  
+  name: any
   constructor(
     private auth: AuthService,
     private router: Router
@@ -26,9 +26,11 @@ export class CheckService implements CanActivate{
       if (!firebase.auth().currentUser) {
         // redirect the user
         this.router.navigate(['/signin']);
+        console.log('mal')
         return false;
       }
-      console.log('mal')
+      console.log(this.name = firebase.auth().currentUser.displayName)
+      
       return true;
   }
 }

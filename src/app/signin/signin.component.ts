@@ -17,9 +17,7 @@ export class SigninComponent implements OnInit {
 
   onSubmitSignIn() { { this.authService.loginEmail(this.email, this.password)
     .then((res) =>{
-      console.log('Bien');
       this.router.navigate(['/dashboard']);
-      
     })
     .catch((err)=> this.error = err);  }}
     onSubmitAddUser() { { this.authService.registerUser(this.emailRe, this.passwordRe)
@@ -29,10 +27,15 @@ export class SigninComponent implements OnInit {
       .catch((err)=> this.error = err);  }}
      onSubmitGoogleLogin() { { this.authService.loginGoogle()
       .then((res) =>{
-        console.log('Bien');
         this.router.navigate(['/dashboard']);
       })
       .catch((err)=> this.error = err);  }}
+      onSubmitForgot() { { this.authService.forgotPassword(this.email)
+        .then((res) =>{
+          this.router.navigate(['/dashboard']);
+          
+        })
+        .catch((err)=> this.error = err);  }}
 
   ngOnInit() {
   }

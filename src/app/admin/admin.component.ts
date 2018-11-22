@@ -22,8 +22,8 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.platosService.getPlatos().subscribe(food =>{
-      this.platos = food;
-      this.getPlatoDetails(this.route.snapshot.params['id']);
+    this.platos = food;
+    this.getPlatoDetails(this.route.snapshot.params['id']);
     });
     
   }
