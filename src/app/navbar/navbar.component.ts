@@ -3,6 +3,7 @@ import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
 import { CarritoService } from '../carrito.service';
 import { Food } from '../models/food';
+import * as firebase from 'firebase/app'
 
 
 @Component({
@@ -12,7 +13,10 @@ import { Food } from '../models/food';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public authService: AuthService, public router: Router, private carritoService: CarritoService) { }
+  user: any;
+  constructor(public authService: AuthService, public router: Router, private carritoService: CarritoService) { 
+    this.user = firebase.auth().currentUser.displayName
+  }
   isCollapsed = false;
   carrito: Food[] = this.carritoService.getCarrito();
 
