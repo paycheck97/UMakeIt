@@ -13,8 +13,8 @@ export class ClaveComponent implements OnInit {
   name:string='';
   price:string='';
   img:string='';
-  disp:boolean=true;
-  id:string='';
+  disp:boolean;
+  
 
   constructor(private router: Router, private fs: FsService, private formBuilder: FormBuilder) { }
 
@@ -23,15 +23,15 @@ export class ClaveComponent implements OnInit {
       'name' : [null, Validators.required],
       'price' : [null, Validators.required],
       'img' : [null, Validators.required],
-      'disp':[true, Validators.required],
-      'id':[null, Validators.required]
+      'disp':[null, Validators.required],
+      
     });
   }
   onFormSubmit(form:NgForm) {
     this.fs.postComidas(form)
       .subscribe(res => {
           let id = res['key'];
-          this.router.navigate(['/admin', id]);
+          this.router.navigate(['/admin']);
         }, (err) => {
           console.log(err);
         });

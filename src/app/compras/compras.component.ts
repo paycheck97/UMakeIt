@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IProducts, IProductos, IProductos2, IProductos3} from '../products';
 import { Subject } from 'rxjs';
 import {FsService} from '../fs.service'
 import {DataSource} from '@angular/cdk/collections'

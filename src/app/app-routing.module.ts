@@ -10,7 +10,9 @@ import { BoardsComponent } from "./boards/boards.component";
 import { BoardsDetailComponent } from "./boards-detail/boards-detail.component";
 import { BoardsEComponent } from "./boards-e/boards-e.component";
 import { BoardsEditComponent } from "./boards-edit/boards-edit.component";
+import { CheckoutComponent } from "./checkout/checkout.component";
 import {ClaveComponent} from "./clave/clave.component";
+import {PlatoseComponent} from "./platose/platose.component";
 import {CheckService} from './check.service';
 
 
@@ -22,6 +24,7 @@ export const routes: Routes = [
   {path: "dashboard", component:DashboardComponent, canActivate: [CheckService]},
   {path: "dash-admin", component:DashAdminComponent},
   {path: "admin", component:AdminComponent},
+  {path: "checkout", component:CheckoutComponent},
   { path: '', redirectTo: '/signin', pathMatch: 'full'},
   {
     path: 'boards',
@@ -32,6 +35,11 @@ export const routes: Routes = [
     path: 'boards-details/:id',
     component: BoardsDetailComponent,
     data: { title: 'Boards Details' }
+  },
+  {
+    path: 'platose/:id',
+    component: PlatoseComponent,
+    data: { title: 'Editar Platos' }
   },
   {
     path: 'boards-e',

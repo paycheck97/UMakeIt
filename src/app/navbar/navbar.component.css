@@ -35,8 +35,8 @@
     padding-top: 0px;
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
-    width: 300px;
+    height: auto;
+    max-width: 100%;
 
  }
 

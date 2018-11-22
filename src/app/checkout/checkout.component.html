@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+
+
+<div class="container">
+  <img src="/assets/checkout.png" alt="checkout">
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Producto</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let carro of carrito">
+        <tr>
+          <td>{{carro.name}}</td>
+          <td>{{carro.cant}}</td>
+          <td>${{carro.price}}</td>
+        </tr>
+      </tbody>
+      <tr>
+          Total ${{total}}
+      </tr>
+    </table>
+
+
+      <app-paypal></app-paypal>  
+</div>
+
+ 
+  
+
