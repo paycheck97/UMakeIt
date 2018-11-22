@@ -21,6 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PopoverModule } from 'ngx-bootstrap/popover';
+import { NgxPayPalModule } from 'ngx-paypal';
 import {
   MatInputModule,
   MatPaginatorModule,
@@ -43,6 +44,8 @@ import {AuthService} from './auth.service';
 import { ClaveComponent } from './clave/clave.component';
 import { DashAdminComponent } from './dash-admin/dash-admin.component';
 import { PlatoseComponent } from './platose/platose.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { PaypalComponent } from './paypal/paypal.component';
 
 
 @NgModule({
@@ -61,6 +64,8 @@ import { PlatoseComponent } from './platose/platose.component';
     ClaveComponent,
     DashAdminComponent,
     PlatoseComponent,
+    CheckoutComponent,
+    PaypalComponent,
     
   ],
   imports: [
@@ -76,6 +81,7 @@ import { PlatoseComponent } from './platose/platose.component';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    NgxPayPalModule,
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
 

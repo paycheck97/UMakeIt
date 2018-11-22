@@ -55,6 +55,7 @@ export class CarritoComponent implements OnInit {
     for(let i of this.carrito){
       aux = aux + (i.cant*i.price)
     }
+    this.carritoService.updateTotal(Math.round(aux));
     return Math.round(aux);
   }
 
