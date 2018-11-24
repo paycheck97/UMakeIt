@@ -6,12 +6,12 @@
     
     
       <div class="container">
-          <select (change)="selectChangeHandler($event)" class="form-control form-control-lg">
-              <option value="Show All">Show All</option>
-              <option value="Pizza">Pizza</option>
-              <option value="Pad Thai">Pad Thai</option>
-              <option value="Baby Back Ribs">Baby Back Ribs</option>
-              <option value="Fried Oreos">Fried Oreos</option>
+  
+          <select (change)="selectChangeHandler($event)" class="form-control form-control-lg" >
+                <option value="Show All">Show All</option>
+              <option *ngFor="let plato of platos" [class.invisible]="!(selectedFood==plato.name || selectedFood=='Show All')" [class.invisible2]="!plato.disp"> 
+                  {{plato.name}}
+                </option>
             </select>
       </div>
     

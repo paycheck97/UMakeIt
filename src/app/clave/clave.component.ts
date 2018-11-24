@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FsService } from '../fs.service';
+import { Uploads} from '../uploads';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 @Component({
   selector: 'app-clave',
@@ -14,7 +15,9 @@ export class ClaveComponent implements OnInit {
   price:string='';
   img:string='';
   disp:boolean;
-  
+  selectedFiles: FileList;
+  currentFileUpload: Uploads;
+  progress: { percentage: number } = { percentage: 0 };
 
   constructor(private router: Router, private fs: FsService, private formBuilder: FormBuilder) { }
 
@@ -27,6 +30,8 @@ export class ClaveComponent implements OnInit {
       
     });
   }
+
+
   onFormSubmit(form:NgForm) {
     this.fs.postComidas(form)
       .subscribe(res => {
