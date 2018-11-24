@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router ,ActivatedRoute} from '@angular/router';
 import { FsService } from '../fs.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-
+import { Uploads} from '../uploads';
 @Component({
   selector: 'app-platose',
   templateUrl: './platose.component.html',
@@ -11,6 +11,9 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 
 export class PlatoseComponent implements OnInit {
 
+  selectedFiles: FileList;
+  currentFileUpload: Uploads;
+  progress: { percentage: number } = { percentage: 0 };
   platosForm: FormGroup;
   name:string='';
   price:string='';
@@ -31,6 +34,7 @@ export class PlatoseComponent implements OnInit {
     });
   } 
   
+ 
   getComida(id) {
     this.fs.getComida(id).subscribe(data => {
       this.id = data.key;

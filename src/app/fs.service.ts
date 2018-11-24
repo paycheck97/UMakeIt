@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as firebase from 'firebase';
-import firestore from 'firebase/firestore'
+import firestore from 'firebase/firestore';
+import { Uploads} from './uploads';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +13,13 @@ export class FsService {
 
   ref = firebase.firestore().collection('boards');
   ref1 = firebase.firestore().collection('comprasNS');
-  ref2 = firebase.firestore().collection('platos')
+  ref2 = firebase.firestore().collection('platos');
 
-  constructor() { }
+  constructor() { 
 
+  }
+
+ 
   getBoards(): Observable<any> {
     return new Observable((observer) => {
       this.ref.onSnapshot((querySnapshot) => {
