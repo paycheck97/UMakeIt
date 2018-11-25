@@ -1,9 +1,8 @@
 export interface Pedidos {
-    name?:string;
-    price?:number;
-    id: string;
-    cant?:number;
-    info?:string;
     mail?:string;
-    date:string;
+    platos?:string;
+    total?:number;
+    id?: string;
+    date?:string;
+    status?:boolean;
 }
