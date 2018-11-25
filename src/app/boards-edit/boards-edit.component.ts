@@ -19,7 +19,7 @@ author:string = '';
 
   ngOnInit() {
     this.getBoard(this.route.snapshot.params['id']);
-  this.boardsForm = this.formBuilder.group({
+    this.boardsForm = this.formBuilder.group({
     'title' : [null, Validators.required],
     'description' : [null, Validators.required],
     'author' : [null, Validators.required]
@@ -27,7 +27,7 @@ author:string = '';
   }
 
   getBoard(id) {
-    this.fs.getBoard(id).subscribe(data => {
+      this.fs.getBoard(id).subscribe(data => {
       this.id = data.key;
       this.boardsForm.setValue({
         title: data.title,

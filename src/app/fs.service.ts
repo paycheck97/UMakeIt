@@ -11,7 +11,8 @@ export class FsService {
 
   ref = firebase.firestore().collection('boards');
   ref1 = firebase.firestore().collection('comprasNS');
-  ref2 = firebase.firestore().collection('platos')
+  ref2 = firebase.firestore().collection('platos');
+  ref4 = firebase.firestore().collection('Users');
 
   constructor() { }
 
@@ -97,8 +98,8 @@ export class FsService {
       this.ref1.doc(id).get().then((doc) => {
         let data = doc.data();
         observer.next({
-          key: doc.id,
-          title: data.preciototal,
+            key: doc.id,
+            title: data.preciototal,
             description: data.cliente,
             productos: data.productos,
         });

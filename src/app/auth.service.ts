@@ -24,7 +24,9 @@ export class AuthService {
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then( userData => resolve(userData),
       err => reject(err));
+      
   });
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   }
   getAuth(){
     return this.afAuth.authState.pipe(map(auth => auth));
@@ -50,6 +52,13 @@ export class AuthService {
       // No user is signed in.
     }
     return user.email;
+  }
+  
+  forgotPassword(email: string){
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.sendPasswordResetEmail(email);
+  });
+
   }
   
 }
