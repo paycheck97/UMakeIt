@@ -35,14 +35,7 @@ export class DashboardComponent implements OnInit {
     this.carritoService.addCarrito(plato);
   }
 
-  filter(a: Food[]){
-    this.platos = [];
-    for(let i of a){
-      if(i.disp==true){
-        this.platos.push(i);
-      }
-    }
-  }
+
 
 
   ngOnInit() {

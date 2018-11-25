@@ -29,6 +29,7 @@ export class PaypalComponent implements OnInit {
       },
       onPaymentComplete: (data, actions) => {
         console.log('OnPaymentComplete');
+        this.carritoService.generarPedido();
       },
       onCancel: (data, actions) => {
         console.log('OnCancel');

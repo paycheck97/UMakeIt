@@ -1,59 +1,28 @@
-<app-dash-admin></app-dash-admin>
-<div class="card-deck">
-  <div class="card bg-primary1 bg-info">
-    <div class="card-body text-center">
-      <div class="card-text">
-          <h3>Compras en seguimiento</h3>
-          <table class="table">
-              
-          </table>
-              
-                <div class="card-group">
-                  <div class="card ">
-                    <div class="card-body text-center">
-                        <div class="card-text">
-                    <div class="example-container mat-elevation-z8">
-                      <table mat-table #table [dataSource]="dataSource">
-                    
-                        <!--- Note that these columns can be defined in any order.
-                              The actual rendered columns are set as a property on the row definition" -->
-                    
-                        <!-- Title Column -->
-                        <ng-container matColumnDef="title">
-                          <th mat-header-cell *matHeaderCellDef> Precio </th>
-                          <td mat-cell *matCellDef="let element" class="title-col"> {{element.title}} </td>
-                        </ng-container>
-                    
-                        <!-- Description Column -->
-                        <ng-container matColumnDef="description">
-                          <th mat-header-cell *matHeaderCellDef> Cliente </th>
-                          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
-                        </ng-container>
-                    
-                        <!-- Author Column -->
-                        <ng-container matColumnDef="productos">
-                          <th mat-header-cell *matHeaderCellDef> Productos </th>
-                          <td mat-cell *matCellDef="let element"> {{element.productos}} </td>
-                        </ng-container>
-                    
-                        
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/boards-details/', row.key]"></tr>
-                      </table>
-                    </div>
-                  </div>
-                    </div>
-                    </div>
-                    </div>
-              
-              
-      </div>
-    </div>
-  </div>
-  
+<app-navbar></app-navbar>
+
+<div>
+  <img src="/assets/ordenes.png" alt="ordenes" style="display:block;margin:auto;max-width: 100%;">
 </div>
 
-
-<footer class="footer1">
-  <p>&copy; All rights reserved for <i>Serresiete Inc.</i> 2018</p>
-</footer>
+<table class="table table-dark" style="width:95%;margin:auto;">
+    <thead>
+      <tr>
+        <th scope="col">Orden</th>
+        <th scope="col">E-Mail</th>
+        <th scope="col">Total</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let pedido of pedidos">
+      <tr>
+        <td>{{pedido.platos}}</td>
+        <td>{{pedido.mail}}</td>
+        <td>${{pedido.total}}</td>
+        <td><button *ngIf="pedido.status else elseBlock" type="button" class="btn btn-light" (click)="changeStatus(pedido)">{{status(pedido)}}</button>
+          <ng-template #elseBlock>
+            <button type="button" class="btn btn-danger" (click)="changeStatus(pedido)" (click)="addPedido()">{{status(pedido)}}</button>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>

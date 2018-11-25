@@ -40,5 +40,16 @@ export class AuthService {
       .then( userData => resolve(userData),
       err => reject(err));
   });}
+
+  getUser(){
+    var user = firebase.auth().currentUser;
+
+    if (user) {
+      // User is signed in.
+    } else {
+      // No user is signed in.
+    }
+    return user.email;
+  }
   
 }
