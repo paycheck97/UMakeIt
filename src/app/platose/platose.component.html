@@ -217,6 +217,13 @@
                               <span *ngIf="!platosForm.get('disp').valid && platosForm.get('disp').touched">Introduzca disponibilidad</span>
                             </mat-error>
                           </mat-form-field>
+                          <mat-form-field class="form-control">
+                              <input matInput placeholder="Tipo" formControlName="tipo"
+                                     [errorStateMatcher]="matcher">
+                              <mat-error>
+                                <span *ngIf="!platosForm.get('disp').valid && platosForm.get('disp').touched">Introduzca el tipo de comida</span>
+                              </mat-error>
+                            </mat-form-field>
                       <div class="button">
                           <a mat-fab color="secondary" [routerLink]="['/admin']"><mat-icon>list</mat-icon></a>
                         </div>

@@ -5,10 +5,12 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Food } from './models/food';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class PedidosService {
+
 
   pedidosCollection: AngularFirestoreCollection<Pedidos>;
   pedidosDoc: AngularFirestoreDocument<Pedidos>;
@@ -29,11 +31,11 @@ export class PedidosService {
      );
   }
 
+
   updatePedido(pedido: Pedidos){
     this.pedidosDoc = this.items.doc(`pedidos/${pedido.id}`);
     this.pedidosDoc.update(pedido);
   }
-
 
 
   getPlatos(){

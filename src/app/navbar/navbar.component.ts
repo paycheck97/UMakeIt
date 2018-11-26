@@ -14,6 +14,9 @@ import * as firebase from 'firebase/app'
 export class NavbarComponent implements OnInit {
 
   user: any;
+  error: any;
+  
+
   constructor(public authService: AuthService, public router: Router, private carritoService: CarritoService) { 
     this.user = firebase.auth().currentUser.displayName
   }
@@ -29,6 +32,11 @@ export class NavbarComponent implements OnInit {
 
   selectedOption = '';
   onSubmitLogout(){
+    { this.authService.logout()
+      .then((res) =>{
+        //agregar pop up de aceptar
+      })
+      .catch((err)=> this.error = err);  }
     
   }
   ngOnInit() {

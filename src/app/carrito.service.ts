@@ -10,7 +10,9 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class CarritoService {
 
+
   constructor(private authService: AuthService, private afs:AngularFirestore) { }
+
   total: number = 0;
   carrito = [];
   pedido:Pedidos;
@@ -48,6 +50,7 @@ export class CarritoService {
     }
     return this.total;
   }
+
 
   
   makeid() {
