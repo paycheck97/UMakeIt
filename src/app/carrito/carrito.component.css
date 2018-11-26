@@ -1,22 +1,19 @@
 
     /* The Modal (background) */
     .modal {
-        margin-top: 30%;
-        margin:auto;
+        margin-top: 15%;
+        margin-left: 30%;
         display: block; /* Hidden by default */
         position: fixed; /* Stay in place */
-        z-index: 10; /* Sit on top */
+        z-index: 1; /* Sit on top */
         left: 0;
         right: 0;
         top: 0;
-        width: 70%; /* Full width */
+        width: 700px; /* Full width */
         height: 100%; /* Full height */
         overflow: auto; /* Enable scroll if needed */
     }
-    .nav-link{
-        color: white !important;
-    }
-
+    
     .masmenos{
         font-size: 10px;
     }
@@ -29,6 +26,7 @@
     
     .cantidad{
         padding: 10px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
     
     /* Modal Header */
@@ -73,22 +71,6 @@
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
         animation-name: animatetop;
         animation-duration: 0.4s
-    }
-
-    @media only screen and (max-width: 768px) {
-        .modal{
-            width: 100%;
-            margin-top: 20%;
-        }
-        .table {
-            font-size: 12px !important;
-            width: 100%;
-        }
-        .masmenos{
-            height: 8px;
-            font-size: 10px;
-        }
- 
     }
     
     /* Add Animation */
