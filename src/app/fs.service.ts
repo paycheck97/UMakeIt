@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import * as firebase from 'firebase';
 import firestore from 'firebase/firestore';
 import { Uploads} from './uploads';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class FsService {
   ref = firebase.firestore().collection('boards');
   ref1 = firebase.firestore().collection('comprasNS');
   ref2 = firebase.firestore().collection('platos');
+
 
   constructor() { 
 
@@ -148,6 +149,7 @@ export class FsService {
             price: data.price,
             disp: data.disp,
             img: data.img,
+            tipo: data.tipo,
           });
         });
         observer.next(comidas);
@@ -165,6 +167,7 @@ export class FsService {
             price: data.price,
             disp: data.disp,
             img: data.img,
+            tipo: data.tipo,
         });
       });
     });
@@ -180,6 +183,7 @@ export class FsService {
     });
   }
   
+
   updateComidas(id: string, data): Observable<any> {
     return new Observable((observer) => {
       this.ref2.doc(id).set(data).then(() => {
