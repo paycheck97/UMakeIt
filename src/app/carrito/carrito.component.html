@@ -5,9 +5,8 @@
 
 </div>
 
-<!-- MODAL -->
-<ng-template #elseBlock>
 
+<ng-template #elseBlock>
   <div id="myModal" class="modal">
 
       <div class="modal-content">
@@ -15,14 +14,15 @@
           <table>
             <tr>
               <td>
-                <img src="/assets/cart.png" alt="cart" style="width:25px;height:25px;margin-right: 10px;">  
+                <img src="/assets/cart.png" alt="cart" style="width:25px;height:20px;margin-right: 5px;">  
               </td>
               <th>
-                  <h3>Shopping  Cart</h3>
+                  <h4>Shopping  Cart</h4>
               </th>
             </tr>
           </table>
         </div>
+        
 
         <div class="modal-body">
 
@@ -35,16 +35,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let carro of carrito">
+                    <tr *ngFor="let carro of carrito" class="data">
                       <td>{{carro.name}}</td>
                       <td>${{carro.price}}</td>
-                      <td><button class="masmenos" (click)="sub(carro)">&#10134;</button><span class="cantidad">{{carro.cant}}</span><button class="masmenos" (click)="add(carro)">&#10133;</button></td>
-                      <td><button (click)="borrarPlato(carro)">&#10060;</button></td>
+                      <td><span class="masmenos" (click)="sub(carro)">&#10134;</span><span class="cantidad">{{carro.cant}}</span><span class="masmenos" (click)="add(carro)">&#10133;</span></td>
+                      <td><span class="masmenos" (click)="borrarPlato(carro)">&#10060;</span></td>
                     </tr>
                   </tbody>
                   
                   <th>TOTAL: $ {{total()}}</th>
                 </table>
+                
         </div>
         <div class="modal-footer">
             <button type="button" [routerLink]="['/checkout']" class="btn btn-primary btn-lg btn-block">Checkout</button>

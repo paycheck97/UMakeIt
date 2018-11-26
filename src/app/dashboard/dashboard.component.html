@@ -8,16 +8,21 @@
       <div class="container">
           <select (change)="selectChangeHandler($event)" class="form-control form-control-lg">
               <option value="Show All">Show All</option>
-              <option value="Pizza">Pizza</option>
-              <option value="Pad Thai">Pad Thai</option>
-              <option value="Baby Back Ribs">Baby Back Ribs</option>
-              <option value="Fried Oreos">Fried Oreos</option>
+              <option value="Apetizer">Apetizers</option>
+              <option value="Entree">Entrees</option>
+              <option value="Salad">Salads</option>
+              <option value="Soup">Soups</option>
+              <option value="Beverage">Beverages</option>
+              <option value="Liquor">Liquor</option>
+              <option value="Kids Menu">Kids Menu</option>
+              <option value="Dessert">Desserts</option>
+
             </select>
       </div>
     
     
           <div class="row">
-            <div class="col-xl-4" *ngFor="let plato of platos" [class.invisible]="!(selectedFood==plato.name || selectedFood=='Show All')" [class.invisible2]="!plato.disp">
+            <div class="col-xl-4" *ngFor="let plato of platos" [class.invisible]="!(selectedFood==plato.info || selectedFood=='Show All')" [class.invisible2]="!plato.disp">
               <div class="card">
                   <img class="card-img-top" src="{{plato.img}}">
                   <div class="card-block">

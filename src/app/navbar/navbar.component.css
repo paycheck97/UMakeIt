@@ -2,14 +2,14 @@
 .nav-item{
     font-size: 30px;
     font-family: 'Anton', sans-serif;
-    color: white;
+    color: white !important;
 }
 
 
 .navbar{
     z-index:+1;
     font-family: 'Anton', sans-serif;
-    color: white;
+    color: white !important;
 
 }
 
