@@ -1,7 +1,7 @@
 <div class="sticky-top">
   <!--HEADER-->
   <div class="header">
-          <a href="./dashboard"><img class="center-block" src="/assets/logo.png" alt="logo"></a>
+          <a routerLink="./carrito"><img class="center-block" src="/assets/logo.png" alt="logo"></a>
   </div>
 
   <!--NAVBAR-->
@@ -14,7 +14,7 @@
           <div [collapse]= "!isCollapsed" class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul  class="navbar-nav navbar-left" style="margin-left: 0px;">
           <li class="nav-item active">
-          <a class="nav-link" routerLink="/dashboard">Home</a>
+            <a class="nav-link" routerLink="/carrito">Home</a>
           </li>
           <li class="nav-item active">
               <app-carrito></app-carrito>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="modal-body">
                         <p>Seguro de que desea cerrar sesion?</p>
-                      <button type="button" class="btn btn-primary" (click)="parentModal.hide()" routerLink="/signin">Si</button>
+                      <button type="button" class="btn btn-primary" (click)="parentModal.hide()" (click)="onSubmitLogout()" routerLink="/signin">Si</button>
                     </div>
                   </div>
                 </div>

@@ -6,4 +6,6 @@ export interface Food{
     id: string;
     cant?:number;
     info?:string;
+    tipo?:string;
+
   }

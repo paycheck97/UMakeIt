@@ -1,0 +1,19 @@
+<app-dash-admin></app-dash-admin>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Agrega un nuevo administrador</h1>
+    <p class="lead">Ingresa un nuevo correo y haz click en 'submit'. Es asi de facil!</p>
+  </div>
+  <div>
+    <form  (submit)= "onSubmitAddAdmin()" class="add-form">
+      <div>
+        <div class="error text-center" style="color: white;" >
+            <span *ngIf="error" >{{error}}</span>
+        </div>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" class="form-control" placeholder="Email address" required [(ngModel)]="email" name="email" id="email">
+        <button class="btn btn-lg  btn-block" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
