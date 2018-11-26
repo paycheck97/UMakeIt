@@ -20,6 +20,7 @@ export class PlatoseComponent implements OnInit {
   img:string='';
   disp:boolean;
   id: string='';
+  tipo: string='';
 
   constructor(private router: Router, private route: ActivatedRoute, private fs: FsService, private formBuilder: FormBuilder) { }
 
@@ -30,6 +31,7 @@ export class PlatoseComponent implements OnInit {
       'price' : [null, Validators.required],
       'img' : [null, Validators.required],
       'disp':[null, Validators.required],
+      'tipo':[null, Validators.required],
       
     });
   } 
@@ -43,6 +45,7 @@ export class PlatoseComponent implements OnInit {
         price: data.price,
         img: data.img,
         disp: data.disp,
+        tipo: data.tipo,
       });
     });
   }

@@ -5,5 +5,6 @@ export interface Food{
     disp?:boolean;
     id: string;
     cant?:number;
+    tipo?:string;
 
   }
