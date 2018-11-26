@@ -50,6 +50,7 @@ import { PaypalComponent } from './paypal/paypal.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

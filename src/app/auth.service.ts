@@ -83,6 +83,17 @@ export class AuthService {
       err => reject(err));
   });}
 
+  getUser(){
+    var user = firebase.auth().currentUser;
+
+    if (user) {
+      // User is signed in.
+    } else {
+      // No user is signed in.
+    }
+    return user.email;
+  }
+  
   forgotPassword(email: string){
     return new Promise((resolve, reject) => {
       this.afAuth.auth.sendPasswordResetEmail(email);
@@ -137,5 +148,4 @@ export class AuthService {
       });
     });
   }
-  
 }
