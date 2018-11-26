@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { PedidosService } from '../pedidos.service';
 import { Pedidos } from '../models/pedidos';
 import { CarritoService } from '../carrito.service';
 import { Food } from '../models/food';
-
 
 @Component({
   selector: 'app-compras',
