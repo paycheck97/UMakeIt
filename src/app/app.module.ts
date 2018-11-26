@@ -11,6 +11,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SigninComponent } from './signin/signin.component';
 import { AngularFirestoreModule} from 'angularfire2/firestore';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ComprasComponent } from './compras/compras.component';
@@ -46,6 +47,8 @@ import { DashAdminComponent } from './dash-admin/dash-admin.component';
 import { PlatoseComponent } from './platose/platose.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PaypalComponent } from './paypal/paypal.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
+
 
 
 @NgModule({
@@ -66,6 +69,7 @@ import { PaypalComponent } from './paypal/paypal.component';
     PlatoseComponent,
     CheckoutComponent,
     PaypalComponent,
+    AddAdminComponent,
     
   ],
   imports: [
@@ -85,6 +89,7 @@ import { PaypalComponent } from './paypal/paypal.component';
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     AngularFireStorageModule,
+    AngularFireDatabaseModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyAdwL-ter_d_iHgRGPmd16vTgTk-GH_CLE",
     authDomain: "project-prod-c8b20.firebaseapp.com",

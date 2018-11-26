@@ -15,7 +15,8 @@ export class CheckService implements CanActivate{
   name: any
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    public afAuth: AngularFireAuth,
   ) {}
 
   canActivate(
@@ -26,10 +27,9 @@ export class CheckService implements CanActivate{
       if (!firebase.auth().currentUser) {
         // redirect the user
         this.router.navigate(['/signin']);
-        console.log('mal')
+        console.log('no entro')
         return false;
       }
-      console.log(this.name = firebase.auth().currentUser.displayName)
       
       return true;
   }

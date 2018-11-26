@@ -1,9 +1,8 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { CarritoService } from '../carrito.service';
 import { Food } from '../models/food';
+import { PedidosService } from '../pedidos.service';
 
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-carrito',
@@ -14,9 +13,7 @@ export class CarritoComponent implements OnInit {
 
 
   
-  constructor(private carritoService: CarritoService, private modalService: BsModalService) { }
-
-  modalRef: BsModalRef;
+  constructor(private carritoService: CarritoService, private peridosService:PedidosService) { }
 
   carrito: Food[] = this.carritoService.getCarrito();
 
@@ -25,9 +22,6 @@ export class CarritoComponent implements OnInit {
       this.carrito.splice(i, 1);
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
 
   selectedOption = '';
 
@@ -57,6 +51,10 @@ export class CarritoComponent implements OnInit {
     }
     this.carritoService.updateTotal(Math.round(aux));
     return Math.round(aux);
+  }
+
+  compraRegistrada(){
+    
   }
 
 

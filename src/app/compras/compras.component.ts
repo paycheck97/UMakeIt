@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import {FsService} from '../fs.service'
-import {DataSource} from '@angular/cdk/collections'
+import { PedidosService } from '../pedidos.service';
+import { Pedidos } from '../models/pedidos';
+import { CarritoService } from '../carrito.service';
+import { Food } from '../models/food';
 
 @Component({
   selector: 'app-compras',
@@ -9,27 +10,37 @@ import {DataSource} from '@angular/cdk/collections'
   styleUrls: ['./compras.component.css']
 })
 export class ComprasComponent implements OnInit {
-  displayedColumns = ['title', 'description', 'productos'];
-  dataSource = new PlatoDataSource(this.fs);
+
+  pedidos:Pedidos[];
+
   
-  constructor(private fs: FsService) { 
+  constructor(private pedidosService:PedidosService) { 
    }
 
+
+
+   status(pedido:Pedidos){
+     var aux = "On Queue";
+    if(pedido.status){
+      aux = "Dispatched"
+    }
+    return aux;
+   }
+
+   changeStatus(pedido: Pedidos){
+    pedido.status = !pedido.status;
+    this.pedidosService.updatePedido(pedido);
+  }
+
+
+
    ngOnInit() {
-
+    this.pedidosService.getPlatos().subscribe(pedidos => {
+      //console.log(platos);
+      //this.filter(food);
+      this.pedidos = pedidos;
+    });
   }
 
-}
-export class PlatoDataSource extends DataSource<any>{
-  constructor(private fs: FsService){
-    super()
-  }
-  connect()
-  {
-    return this.fs.getPlatos();
-  }
-  disconnect(){
-
-  }
 
 }
