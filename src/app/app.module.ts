@@ -48,6 +48,7 @@ import { PlatoseComponent } from './platose/platose.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { PaypalComponent } from './paypal/paypal.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
+import { HistorialComponent } from './historial/historial.component';
 
 
 
@@ -70,6 +71,7 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
     CheckoutComponent,
     PaypalComponent,
     AddAdminComponent,
+    HistorialComponent,
     
   ],
   imports: [

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PlatosService } from '../platos.service';
 import { CarritoService } from '../carrito.service';
 import { Food } from '../models/food';
+import { AngularFirestore} from "@angular/fire/firestore";
+
 
 
 @Component({
@@ -13,13 +15,13 @@ export class DashboardComponent implements OnInit {
   
   sortFood = 'Sort Food';
   selectedFood = 'Show All';
-  platos: Food[];
+  platos:Food[];
 
   aux: Food[];
   
 
 
-  constructor(private platosService:PlatosService, private carritoService: CarritoService) { }
+  constructor(private platosService:PlatosService, private carritoService: CarritoService,private readonly afs: AngularFirestore) { }
 
   selectChangeHandler(event: any){
     this.selectedFood = event.target.value;
@@ -37,13 +39,10 @@ export class DashboardComponent implements OnInit {
 
 
 
-
   ngOnInit() {
-    this.platosService.getPlatos().subscribe(food => {
-      //console.log(platos);
-      //this.filter(food);
-      this.platos = food;
-    });
+     this.platosService.getPlatos().subscribe(food => {
+       this.platos = food;
+     });
     
   }
 }
