@@ -31,7 +31,7 @@ export const routes: Routes = [
   {path:"add-admin", component:AddAdminComponent, canActivate: [CheckService]},
   {path:"show-admin", component:ShowAdminComponent, },
   {path: "dash-admin", component:DashAdminComponent},
-  {path: "admin", component:AdminComponent, canActivate: [CheckService]},
+  {path: "admin", component:AdminComponent, },
   {path: "checkout", component:CheckoutComponent},
   { path: '', redirectTo: '/signin', pathMatch: 'full'},
   {

@@ -1,33 +1,34 @@
 <app-dash-admin></app-dash-admin>
-<div class="admin header">
-    <img class="admin-symbol" src="/assets/menu_symbol_editor.png" alt="editor" style="margin:auto;">
-</div>
-<div>
+<div >
+  <img class="admin-symbol" src="/assets/menu_symbol_editor.png" alt="editor" >
+</div >
+<div class = "container" style = "text-align: center;">
+  
   <div class="row">
       <div class="col-xl-4" *ngFor="let plato of platos">
-        <div class="card">
-            <img class="card-img-top" src="{{plato.img}}">
+        <div class="card-shadow">
+            <img class="card-img-top" src="{{plato.img}}" style="margin-top: 10px;">
             <div class="card-block">
                 <p class="card-text">{{plato.name}}</p>
-                <ul class="list-group list-group-flush">
-                          <button (click)="disp(plato)" type="button" class="btn btn-secondary btn-s" *ngIf="plato.disp">Disponible</button>
-                          <button (click)="disp(plato)" type="button" class="btn btn-secondary btn-s bg-light" *ngIf="!plato.disp">No Disponible</button>
-                          <button type="button" class="btn btn-secondary btn-md">Details</button>
-                          <mat-card-actions>
-                            <button class="btn" [routerLink]="['/platose/', plato.id]"><mat-icon>edit</mat-icon></button>
-                          <button class="btn" (click)="deletePlato(plato.id)"><mat-icon>delete</mat-icon></button>
-                        </mat-card-actions>
-                </ul>
+                <div>
+                          <button (click)="disp(plato)"  class="btn btn-success btn-block btn-sm" *ngIf="plato.disp">Disponible</button>
+                          <button (click)="disp(plato)"  class="btn btn-danger btn-block btn-sm" *ngIf="!plato.disp">No Disponible</button>
+                          <button  class="btn  btn-secondary btn-block btn-sm" style="margin-bottom: 10px;">Details</button>
+                          <mat-card-actions >
+                          <button style="margin-right: 2px;"class="btn  btn-outline-info btn-sm" [routerLink]="['/platose/', plato.id]" ><mat-icon>edit</mat-icon></button>
+                          <button class="btn btn-outline-danger btn-sm" (click)="deletePlato(plato.id)"><mat-icon>delete</mat-icon></button>
+                          </mat-card-actions>
+                </div>
             </div>
         </div>
       </div>
     </div>
     
-      <div class = "card2">
-        <p>Agregar Producto</p>
+      <div class = "card2" style="margin-top:30px;">
+        <h3>Agregar Producto</h3>
         <div class = "button-row">
-            <mat-card-actions>
-          <a mat-fab color = "primary" routerLink="/clave"><mat-icon>add</mat-icon></a>
+        <mat-card-actions>
+          <a mat-fab color = "primary" routerLink="/clave" style="margin-top:10px;"><mat-icon>add</mat-icon></a>
         </mat-card-actions>
         </div>
       </div>

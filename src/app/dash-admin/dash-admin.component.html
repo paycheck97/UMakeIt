@@ -13,22 +13,37 @@
                   <a class="nav-link" routerLink="/admin">Home</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" routerLink="/add-admin">Manejar</a>
+                  <a class="nav-link" routerLink='/compras'>Pedidos</a>
                 </li>
+                <li class="nav-item active">
+                  <a class="nav-link" routerLink="/add-admin">Manage</a>
+                </li>
+               
+                <li class="nav-item active">
+                  <a class="nav-link"  (click) = "parentModal.show()">Logout</a>
+            </li>
             </ul>
     
           </div>
           </div>
       
   </nav>
-  <nav class="navbar navbar-default bg-danger" >
-    <div class="container-fluid">
 
-      <div class="navbar-header ">
-          <a class="navbar-brand text-white" routerLink='/compras'>Pedidos</a>
-        
+  <div class="modal fade" bsModal #parentModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-nested-name1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="dialog-nested-name1" class="modal-title pull-left">Logout</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="parentModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-              
+        <div class="modal-body">
+            <p>Seguro de que desea cerrar sesion?</p>
+          <button type="button" class="btn btn-primary" (click)="parentModal.hide()" (click)="onSubmitLogout()" routerLink="/signin">Si</button>
+        </div>
+      </div>
     </div>
-    
-  </nav>
+  </div>
+
+ 
