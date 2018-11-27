@@ -43,10 +43,7 @@ export class ClaveComponent implements OnInit {
         
         
     });
-    this.fs.getPlatos1().subscribe(food =>{
-      this.platos = food;
-      this.getPlatoDetails(this.route.snapshot.params['id']);
-      });
+    
   }
 
   getPlatoDetails(id) {
@@ -58,11 +55,7 @@ export class ClaveComponent implements OnInit {
       });
   }
   
-  imagen(plato: Food){
-    plato.img = this.imageUrl;
-    this.fs.updateFood(plato);
-    console.log(plato.img);
-  }
+  
 
   upload(event) {
     
