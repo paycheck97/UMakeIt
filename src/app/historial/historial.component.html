@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="title"><h1>HISTORIAL DE COMPRAS</h1></div>
+<div>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Orden</th>
+        <th scope="col">Total</th>
+        <th scope="col">e-Mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of pedidosUser">
+        <td>{{user.platos}}</td>
+        <td>{{user.total}}</td>
+        <td>{{user.mail}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
