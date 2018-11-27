@@ -52,7 +52,7 @@
         </button>
       </div>
       <div class="modal-body">
-            <form  (submit)= "onSubmitSignIn()" #heroForm="ngForm">
+            <form   #heroForm="ngForm">
               <div>
                 <div class="error bg-warning text-center" style="color: white;" >
                     <span *ngIf="error" >{{error}}</span>
@@ -61,7 +61,7 @@
                 <input type="email" class="form-control" placeholder="Email address" required [(ngModel)]="email" name="email" id="email">
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="password" name="password" id="password">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <button class="btn btn-lg btn-primary btn-block" (click)= "onSubmitSignIn()">Login</button>
                 <button class="btn btn-lg btn-success btn-block" (click) = "onSubmitGoogleLogin()">Google Login</button>
                 <a  (click)="ForgotModal.show()" (click)="SignInModal.hide()">Forgot Password?</a>
               </div>
