@@ -66,13 +66,12 @@ export class CarritoService {
       ordenes = ordenes + carro.name + " x" + carro.cant + " ";
     }
     this.carrito = this.carrito.splice(0,this.carrito.length);
-    this.total = 0;
     var user = this.authService.getUserMail();
     var pedido:Pedidos;
     pedido = {platos:ordenes, mail:user,total:this.total};
     
     this.addPedido(pedido);
-    console.log(pedido);
+    this.total=0;
   }
 
   addPedido(pedido:Pedidos){

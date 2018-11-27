@@ -15,7 +15,11 @@ import {ClaveComponent} from "./clave/clave.component";
 import {PlatoseComponent} from "./platose/platose.component";
 import {CheckService} from './check.service';
 import {AddAdminComponent} from "./add-admin/add-admin.component";
+
+import {HistorialComponent} from "./historial/historial.component";
+
 import {ShowAdminComponent} from "./show-admin/show-admin.component";
+
 
 
 export const routes: Routes = [
@@ -58,6 +62,10 @@ export const routes: Routes = [
   { path: '',
     redirectTo: '/boards',
     pathMatch: 'full'
+  },
+  {
+    path: 'history',
+    component: HistorialComponent
   }
 
  
