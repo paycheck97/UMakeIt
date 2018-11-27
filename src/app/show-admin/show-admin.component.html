@@ -12,10 +12,10 @@
     <tbody *ngFor="let admin of admins" [class.invisible]="!admin.admin">
         <tr>
           <td>{{admin.email}}</td>
-          <td><button class="btn btn-danger" (click)="delete(admin.id)" >Eliminar</button></td>
+          <td><button class="btn btn-danger" (click)="delete1(admin.id)" >Eliminar</button></td>
           
         </tr>
-      </tbody>
+    </tbody>
   </table>
   <div style="margin-left: 20px; margin-top: 20px;">
     <button class="btn" routerLink="/add-admin">Agregar</button>

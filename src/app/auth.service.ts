@@ -55,7 +55,7 @@ export class AuthService {
   registerAdmin(emailRe: string, passwordRe: string){
     return new Promise((resolve, reject) => {
         this.afAuth.auth.createUserWithEmailAndPassword(emailRe, passwordRe)
-        .then( userData => {resolve(userData); this.updateAdminData(userData.user);},
+        .then( userData => {resolve(userData); this.updateAdminData(userData.user); this.afAuth.auth.currentUser.sendEmailVerification()},
         err => reject(err));
     });
   }
@@ -147,4 +147,14 @@ export class AuthService {
     });
   }
   
+  getUserVerified(){
+    var user = firebase.auth().currentUser.emailVerified;
+
+    if (user) {
+      // User is signed in.
+    } else {
+      // No user is signed in.
+    }
+    return user;
+  }
 }

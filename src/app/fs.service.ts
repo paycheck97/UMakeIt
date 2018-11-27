@@ -18,23 +18,28 @@ export class FsService {
   ref1 = firebase.firestore().collection('comprasNS');
   ref2 = firebase.firestore().collection('platos');
   ref4 = firebase.firestore().collection('Users');
-  adminCollection: AngularFirestoreCollection<Admin>;
-  adminDoc: AngularFirestoreDocument<Admin>;
+  adminsCollection: AngularFirestoreCollection<Admin>;
+  foodDoc: AngularFirestoreDocument<Admin>;
+
+
 
   admins: Observable<Admin[]>;
 
-  constructor(public readonly items: AngularFirestore) {
-    this.adminCollection = items.collection<Admin>('admins');
-    this.admins = this.adminCollection.snapshotChanges().pipe(
-       map(actions => actions.map(a => {
-         const data = a.payload.doc.data() as Admin;
-         const id = a.payload.doc.id;
-         return { id, ...data };
-       }))
-     );
-   }
+  constructor(public readonly items: AngularFirestore) { 
+    //this.foods = this.items.collection('platos').valueChanges();
+    this.adminsCollection = items.collection<Admin>('Users');
+    this.admins = this.adminsCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Admin;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+ }
 
-
+ getAdmins(){
+  return this.admins;
+}
  
   getBoards(): Observable<any> {
     return new Observable((observer) => {
@@ -104,6 +109,8 @@ export class FsService {
             key: doc.id,
             admin: data.admin,
             email: data.email,
+            name: data.name,
+            uid: data.uid,
             
           });
         });
@@ -120,6 +127,8 @@ export class FsService {
             key: doc.id,
             admin: data.admin,
             email: data.email,
+            name: data.name,
+            uid: data.uid,
         });
       });
     });

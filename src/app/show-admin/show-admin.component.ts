@@ -16,7 +16,7 @@ export class ShowAdminComponent implements OnInit {
   constructor(private fs: FsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.fs.getPlatos().subscribe(Admin => {
+    this.fs.getAdmins().subscribe(Admin => {
       //console.log(platos);
       //this.filter(food);
       this.admins = Admin;
@@ -31,8 +31,7 @@ export class ShowAdminComponent implements OnInit {
       });
   }
 
-  delete(id){
-    console.log(id);
+  delete1(id){
     this.fs.deletePlatos(id)
     .subscribe(res => {
       this.router.navigate(['/show-admin']);
