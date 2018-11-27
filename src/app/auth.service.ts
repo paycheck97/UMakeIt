@@ -93,7 +93,7 @@ export class AuthService {
     }
     return user.email;
   }
-  
+
   forgotPassword(email: string){
     return new Promise((resolve, reject) => {
       this.afAuth.auth.sendPasswordResetEmail(email);
@@ -133,19 +133,18 @@ export class AuthService {
 
   }
 
-  getUser(): Observable<any> {
+  getUserPos(): Observable<any> {
     
     this.id = this.afAuth.auth.currentUser.uid;
-    this.userRef = this.afs.doc(`Users/${this.id}`);
+    this.userRef = this.afs.collection('Users').doc(this.id).get()
+    console.log(this.afs.collection('Users').doc(this.id));
     return new Observable((observer) => {
-      this.userRef.doc(this.id).get().then((doc) => {
+      this.userRef.then((doc) => {
         let data = doc.data();
-        
-          key: doc.id;
-          admin: data.admin;
-          console.log(data.admin);
+        console.log(data.admin);
         
       });
     });
   }
+  
 }

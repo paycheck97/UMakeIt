@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as firebase from 'firebase';
-import firestore from 'firebase/firestore'
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/firestore";
+import { Admin } from './models/admin';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,21 @@ export class FsService {
   ref1 = firebase.firestore().collection('comprasNS');
   ref2 = firebase.firestore().collection('platos');
   ref4 = firebase.firestore().collection('Users');
+  adminCollection: AngularFirestoreCollection<Admin>;
+  adminDoc: AngularFirestoreDocument<Admin>;
 
-  constructor() { }
+  admins: Observable<Admin[]>;
+
+  constructor(public readonly items: AngularFirestore) {
+    this.adminCollection = items.collection<Admin>('admins');
+    this.admins = this.adminCollection.snapshotChanges().pipe(
+       map(actions => actions.map(a => {
+         const data = a.payload.doc.data() as Admin;
+         const id = a.payload.doc.id;
+         return { id, ...data };
+       }))
+     );
+   }
 
   getBoards(): Observable<any> {
     return new Observable((observer) => {
@@ -76,15 +90,14 @@ export class FsService {
 
   getPlatos(): Observable<any> {
     return new Observable((observer) => {
-      this.ref1.onSnapshot((querySnapshot) => {
+      this.ref4.onSnapshot((querySnapshot) => {
         let platos = [];
         querySnapshot.forEach((doc) => {
           let data = doc.data();
           platos.push({
             key: doc.id,
-            title: data.preciototal,
-            description: data.cliente,
-            productos: data.productos,
+            admin: data.admin,
+            email: data.email,
             
           });
         });
@@ -95,13 +108,12 @@ export class FsService {
   
   getPlato(id: string): Observable<any> {
     return new Observable((observer) => {
-      this.ref1.doc(id).get().then((doc) => {
+      this.ref4.doc(id).get().then((doc) => {
         let data = doc.data();
         observer.next({
             key: doc.id,
-            title: data.preciototal,
-            description: data.cliente,
-            productos: data.productos,
+            admin: data.admin,
+            email: data.email,
         });
       });
     });
@@ -109,7 +121,7 @@ export class FsService {
   
   postPlatos(data): Observable<any> {
     return new Observable((observer) => {
-      this.ref1.add(data).then((doc) => {
+      this.ref4.add(data).then((doc) => {
         observer.next({
           key: doc.id,
         });
@@ -119,7 +131,7 @@ export class FsService {
   
   updatePlatos(id: string, data): Observable<any> {
     return new Observable((observer) => {
-      this.ref1.doc(id).set(data).then(() => {
+      this.ref4.doc(id).set(data).then(() => {
         observer.next();
       });
     });
@@ -127,11 +139,12 @@ export class FsService {
   
   deletePlatos(id: string): Observable<{}> {
     return new Observable((observer) => {
-      this.ref1.doc(id).delete().then(() => {
+      this.ref4.doc(id).delete().then(() => {
         observer.next();
       });
     });
   }
+  
   getComidas(): Observable<any> {
     return new Observable((observer) => {
       this.ref2.onSnapshot((querySnapshot) => {
