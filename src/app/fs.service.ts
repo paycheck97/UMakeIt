@@ -35,10 +35,6 @@ export class FsService {
    }
 
 
-  constructor() { 
-
-  }
-
  
   getBoards(): Observable<any> {
     return new Observable((observer) => {
