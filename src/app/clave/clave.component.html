@@ -20,18 +20,18 @@
                             </mat-error>
                           </mat-form-field>
                           <mat-form-field class="form-control">
-                            <textarea matInput placeholder="Precio" formControlName="price"
-                                   [errorStateMatcher]="matcher"></textarea>
+                            <input matInput placeholder="Precio" formControlName="price"
+                                   [errorStateMatcher]="matcher">
                             <mat-error>
                               <span *ngIf="!platosForm.get('price').valid && platosForm.get('price').touched">Introduzca el precio</span>
                             </mat-error>
                           </mat-form-field>
                           
-                          <div class="form-control">
-                            <input placeholder="Imagen" formControlName="img"
-                            type="file" (change)="upload($event)" accept=".png,.jpg" />
+                          <mat-form-field class="form-control">
+                            <input matInput placeholder="Imagen" formControlName="img"
+                            [errorStateMatcher]="matcher">
                             
-                          </div>
+                          </mat-form-field>
                           
       
                             <mat-form-field class="form-control">

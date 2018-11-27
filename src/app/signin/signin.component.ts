@@ -45,7 +45,7 @@ export class SigninComponent implements OnInit {
     .catch((err)=> this.error = err);  }}
     onSubmitGoogleLogin() { { this.authService.loginGoogle()
     .then((res) =>{
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/admin']);
     })
     .catch((err)=> this.error = err);  }}
     onSubmitForgot() { { this.authService.forgotPassword(this.email)

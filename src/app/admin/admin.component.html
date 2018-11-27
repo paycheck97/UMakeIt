@@ -11,9 +11,9 @@
             <div class="card-block">
                 <p class="card-text">{{plato.name}}</p>
                 <div>
-                          <button (click)="disp(plato)"  class="btn btn-success btn-block btn-sm" *ngIf="plato.disp">Disponible</button>
-                          <button (click)="disp(plato)"  class="btn btn-danger btn-block btn-sm" *ngIf="!plato.disp">No Disponible</button>
-                          <button  class="btn  btn-secondary btn-block btn-sm" style="margin-bottom: 10px;">Details</button>
+                          <button (click)="disp(plato)"  class="btn btn-success btn-block btn-sm" style="margin-bottom: 10px;" *ngIf="plato.disp">Disponible</button>
+                          <button (click)="disp(plato)"  class="btn btn-danger btn-block btn-sm" style="margin-bottom: 10px;" *ngIf="!plato.disp">No Disponible</button>
+                          
                           <mat-card-actions >
                           <button style="margin-right: 2px;"class="btn  btn-outline-info btn-sm" [routerLink]="['/platose/', plato.id]" ><mat-icon>edit</mat-icon></button>
                           <button class="btn btn-outline-danger btn-sm" (click)="deletePlato(plato.id)"><mat-icon>delete</mat-icon></button>
