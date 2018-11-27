@@ -45,9 +45,6 @@ export class CarritoService {
   }
 
   getTotal(){
-    if(this.total==0){
-      return 1;
-    }
     return this.total;
   }
 
@@ -68,8 +65,9 @@ export class CarritoService {
     for(let carro of this.carrito){
       ordenes = ordenes + carro.name + " x" + carro.cant + " ";
     }
-    this.carrito = [];
-    var user = this.authService.getUser();
+    this.carrito = this.carrito.splice(0,this.carrito.length);
+    this.total = 0;
+    var user = this.authService.getUserMail();
     var pedido:Pedidos;
     pedido = {platos:ordenes, mail:user,total:this.total};
     

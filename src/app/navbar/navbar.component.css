@@ -73,4 +73,7 @@
         padding-bottom: 0px;
         background-color: #343a40;
     }
+    .nav-link{
+        font-size: 20px;
+    }
 }

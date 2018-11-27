@@ -25,7 +25,8 @@
     </table>
 
 
-      <app-paypal></app-paypal>  
+      <app-paypal (click)="emptyCart()"></app-paypal>  
+      <button type="button" class="btn btn-warning" (click)="this.carritoService.generarPedido();">PayPal 2.0</button>
 </div>
 
  

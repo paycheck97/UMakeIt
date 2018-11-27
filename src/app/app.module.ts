@@ -6,7 +6,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SigninComponent } from './signin/signin.component';
@@ -90,6 +90,7 @@ import { ShowAdminComponent } from './show-admin/show-admin.component';
     NgxPayPalModule,
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
+    AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyAdwL-ter_d_iHgRGPmd16vTgTk-GH_CLE",

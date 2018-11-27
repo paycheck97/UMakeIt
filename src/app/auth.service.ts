@@ -83,7 +83,7 @@ export class AuthService {
       err => reject(err));
   });}
 
-  getUser(){
+  getUserMail(){
     var user = firebase.auth().currentUser;
 
     if (user) {

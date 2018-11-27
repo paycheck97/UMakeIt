@@ -14,6 +14,10 @@ export class CheckoutComponent implements OnInit {
 
   total = this.carritoService.getTotal();
 
+  emptyCart(){
+    this.carrito = [];
+  }
+
   ngOnInit() {
   }
 
