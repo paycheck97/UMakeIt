@@ -15,6 +15,7 @@ import {ClaveComponent} from "./clave/clave.component";
 import {PlatoseComponent} from "./platose/platose.component";
 import {CheckService} from './check.service';
 import {AddAdminComponent} from "./add-admin/add-admin.component";
+import {ShowAdminComponent} from "./show-admin/show-admin.component";
 
 
 export const routes: Routes = [
@@ -24,6 +25,7 @@ export const routes: Routes = [
   {path:"carrito", component:CarritoComponent, canActivate: [CheckService]},
   {path: "dashboard", component:DashboardComponent, canActivate: [CheckService]},
   {path:"add-admin", component:AddAdminComponent, canActivate: [CheckService]},
+  {path:"show-admin", component:ShowAdminComponent, },
   {path: "dash-admin", component:DashAdminComponent},
   {path: "admin", component:AdminComponent, canActivate: [CheckService]},
   {path: "checkout", component:CheckoutComponent},
