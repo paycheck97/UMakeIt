@@ -9,6 +9,7 @@ import { Uploads} from './uploads';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,7 @@ export class FsService {
   adminsCollection: AngularFirestoreCollection<Admin>;
   foodDoc: AngularFirestoreDocument<Admin>;
 
+ 
 
 
   admins: Observable<Admin[]>;
