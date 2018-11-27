@@ -24,15 +24,15 @@ import {ShowAdminComponent} from "./show-admin/show-admin.component";
 
 export const routes: Routes = [
   {path:"signin", component:SigninComponent},
-  {path:"clave", component:ClaveComponent},
-  {path:"compras", component:ComprasComponent},
+  {path:"clave", component:ClaveComponent, canActivate: [CheckService]},
+  {path:"compras", component:ComprasComponent, canActivate: [CheckService]},
   {path:"carrito", component:CarritoComponent, canActivate: [CheckService]},
-  {path: "dashboard", component:DashboardComponent, canActivate: [CheckService]},
+  {path: "dashboard", component:DashboardComponent},
   {path:"add-admin", component:AddAdminComponent, canActivate: [CheckService]},
-  {path:"show-admin", component:ShowAdminComponent, },
+  {path:"show-admin", component:ShowAdminComponent, canActivate: [CheckService]},
   {path: "dash-admin", component:DashAdminComponent},
-  {path: "admin", component:AdminComponent, },
-  {path: "checkout", component:CheckoutComponent},
+  {path: "admin", component:AdminComponent, canActivate: [CheckService]},
+  {path: "checkout", component:CheckoutComponent, canActivate: [CheckService]},
   { path: '', redirectTo: '/signin', pathMatch: 'full'},
   {
     path: 'boards',
