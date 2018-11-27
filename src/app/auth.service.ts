@@ -133,7 +133,7 @@ export class AuthService {
 
   }
 
-  getUser(): Observable<any> {
+  getUserpos(): Observable<any> {
     
     this.id = this.afAuth.auth.currentUser.uid;
     this.userRef = this.afs.doc(`Users/${this.id}`);

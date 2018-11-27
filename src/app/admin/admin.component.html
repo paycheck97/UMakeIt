@@ -2,7 +2,7 @@
 <div class="admin header">
     <img class="admin-symbol" src="/assets/menu_symbol_editor.png" alt="editor" style="margin:auto;">
 </div>
-<div>
+<div class="container">
   <div class="row">
       <div class="col-xl-4" *ngFor="let plato of platos">
         <div class="card">
@@ -12,10 +12,10 @@
                 <ul class="list-group list-group-flush">
                           <button (click)="disp(plato)" type="button" class="btn btn-secondary btn-s" *ngIf="plato.disp">Disponible</button>
                           <button (click)="disp(plato)" type="button" class="btn btn-secondary btn-s bg-light" *ngIf="!plato.disp">No Disponible</button>
-                          <button type="button" class="btn btn-secondary btn-md">Details</button>
+                          
                           <mat-card-actions>
-                            <a mat-fab color="primary" [routerLink]="['/platose/', plato.id]"><mat-icon>edit</mat-icon></a>
-                          <a mat-fab color="warn" (click)="deletePlato(plato.id)"><mat-icon>delete</mat-icon></a>
+                            <a mat-fab color="primary"  [routerLink]="['/platose/', plato.id]"><mat-icon class="boton">edit</mat-icon></a>
+                          <a mat-fab color="warn"  (click)="deletePlato(plato.id)"><mat-icon class="boton">delete</mat-icon></a>
                         </mat-card-actions>
                 </ul>
             </div>

@@ -182,48 +182,36 @@
           <div class="container3">
               <div class="form-sign-in1">
                   Crear producto
+                  
                   <form [formGroup]="platosForm" (ngSubmit)="onFormSubmit(platosForm.value)">
+
+                      
                     <mat-form-field class="form-control">
                       <input matInput placeholder="Nombre" formControlName="name"
                              [errorStateMatcher]="matcher">
-                      <mat-error>
-                        <span *ngIf="!platosForm.get('name').valid && platosForm.get('name').touched">Introduzca el nombre</span>
-                      </mat-error>
+                      
                     </mat-form-field>
                     <mat-form-field class="form-control">
-                      <textarea matInput placeholder="Precio" formControlName="price"
-                             [errorStateMatcher]="matcher"></textarea>
-                      <mat-error>
-                        <span *ngIf="!platosForm.get('price').valid && platosForm.get('price').touched">Introduzca el precio</span>
-                      </mat-error>
+                      <input matInput placeholder="Precio" formControlName="price"
+                             [errorStateMatcher]="matcher">
                     </mat-form-field>
-                    
-                    <div class="form-control">
-                      <input placeholder="Imagen" formControlName="img"
-                      type="file" (change)="upload($event)" accept=".png,.jpg" />
-                      
-                    </div>
-                    
-
+    
                       <mat-form-field class="form-control">
                           <input matInput placeholder="Disponible" formControlName="disp"
                                  [errorStateMatcher]="matcher">
-                          <mat-error>
-                            <span *ngIf="!platosForm.get('disp').valid && platosForm.get('disp').touched">Introduzca disponibilidad</span>
-                          </mat-error>
+                          
                         </mat-form-field>
-                        <mat-form-field class="form-control">
-                            <input matInput placeholder="Tipo" formControlName="tipo"
-                                   [errorStateMatcher]="matcher">
-                            <mat-error>
-                              <span *ngIf="!platosForm.get('disp').valid && platosForm.get('disp').touched">Introduzca el tipo de comida</span>
-                            </mat-error>
-                          </mat-form-field>
+                        
+                            <select  formControlName="tipo">
+                                   <option [value]="tipo" *ngFor="let tipo of tipos">{{tipo}}</option>
+                                   </select>
+                                   <input type="file" (change)="upload($event)" formControlName='img' (click)=imagen(img)/>
+                                  
                     <div class="button">
                         <a mat-fab color="secondary" [routerLink]="['/admin']"><mat-icon>list</mat-icon></a>
                       </div>
-                    <div class="button-row">
-                      <button type="submit" [disabled]="!platosForm.valid" mat-fab color="secondary"><mat-icon>save</mat-icon></button>
+                    <div class="button-row" >
+                      <button type="submit"  mat-fab color="secondary" ><mat-icon>save</mat-icon></button>
                     </div>
                   </form>
                 </div>

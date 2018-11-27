@@ -20,7 +20,7 @@ export class SigninComponent implements OnInit {
   onSubmitSignIn() { { this.authService.loginEmail(this.email, this.password)
     .then((res) =>{
       this.router.navigate(['/dashboard']);
-      this.authService.getUser();
+      this.authService.getUserpos();
  
     })
     .catch((err)=> this.error = err);  }}

@@ -33,6 +33,7 @@ export class AdminComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.plato = data;
+        
       });
   }
   deletePlato(id) {

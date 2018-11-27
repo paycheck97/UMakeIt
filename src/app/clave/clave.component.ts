@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FsService } from '../fs.service';
-import { Uploads} from '../uploads';
-import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
+import {Food} from '../models/food';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { UploadService } from '../upload.service';
+import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { tap, finalize } from 'rxjs/operators';
+import * as firebase from 'firebase';
+
 @Component({
   selector: 'app-clave',
   templateUrl: './clave.component.html',
@@ -20,49 +22,75 @@ export class ClaveComponent implements OnInit {
   img:string='';
   disp:boolean;
   tipo: string='';
-  ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
-  uploadPercent: Observable<number>;
+  imageUrl: string;
   downloadURL: Observable<string>;
+  platos: Food[];
+  plato={};
+  tipos = ['Soups', 'Entrees', 'Apetizers', 'Salads', 'Beverages', 'Liquor', 'Kids Menu'];
+  ref= firebase.firestore().collection('platos');
 
-  constructor(private router: Router, private fs: FsService, private formBuilder: FormBuilder, private afStorage: AngularFireStorage ) { }
+  constructor(private router: Router, private route: ActivatedRoute, private fs: FsService, private formBuilder: FormBuilder, private storage: AngularFireStorage, private db: AngularFirestore) { }
 
   ngOnInit() {
     this.platosForm = this.formBuilder.group({
+      
       'name' : [null, Validators.required],
       'price' : [null, Validators.required],
-      'img' : [null, Validators.required],
-      'disp':[null, Validators.required],
+      'disp':[true, Validators.required],
       'tipo':[null, Validators.required],
-      
+      'img':[null, Validators.required],
+        
+        
     });
+    this.fs.getPlatos1().subscribe(food =>{
+      this.platos = food;
+      this.getPlatoDetails(this.route.snapshot.params['id']);
+      });
   }
 
+  getPlatoDetails(id) {
+    this.fs.getComida(id)
+      .subscribe(data => {
+        console.log(data);
+        this.plato = data;
+        
+      });
+  }
   
+  imagen(plato: Food){
+    plato.img = this.imageUrl;
+    this.fs.updateFood(plato);
+    console.log(plato.img);
+  }
+
   upload(event) {
-    const file = event.target.files[0];
-    const filePath = 'name-your-file-path-here';
-    const fileRef = this.afStorage.ref(filePath);
-    const task = this.afStorage.upload(filePath, file);
-
-    // observe percentage changes
-    this.uploadPercent = task.percentageChanges();
-    // get notified when the download URL is available
-    task.snapshotChanges().pipe(
-        finalize(() => this.downloadURL = fileRef.getDownloadURL() )
-     )
-    .subscribe()
+    
+     const file: File = event.target.files[0];
+     const metaData = {'contentType': file.type};
+     const storRef: firebase.storage.Reference  = firebase.storage().ref('/MyFolder/' + file.name);
+     const uploadTask: firebase.storage.UploadTask = storRef.put(file, metaData);
+     console.log('Uploading:' + file.name);
+ 
+     uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+      const imageUrl = downloadURL;
+      console.log('URL:' + imageUrl);
+      this.ref.doc().set(imageUrl);
+    });
+   
   }
-  
-  
+ 
   onFormSubmit(form:NgForm) {
+ 
     this.fs.postComidas(form)
       .subscribe(res => {
           let id = res['key'];
+          
           this.router.navigate(['/admin']);
         }, (err) => {
           console.log(err);
         });
+        
   }
 
 }

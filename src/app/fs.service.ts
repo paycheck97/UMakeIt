@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as firebase from 'firebase';
+import { Food } from './models/food';
 import firestore from 'firebase/firestore';
 import { Uploads} from './uploads';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
+import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from 'angularfire2/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +18,34 @@ export class FsService {
   ref2 = firebase.firestore().collection('platos');
   ref4 = firebase.firestore().collection('Users');
 
+  foodCollection: AngularFirestoreCollection<Food>;
+  foodDoc: AngularFirestoreDocument<Food>;
 
-  constructor() { 
 
+
+  foods: Observable<Food[]>;
+
+  constructor(public readonly items: AngularFirestore) { 
+     //this.foods = this.items.collection('platos').valueChanges();
+     this.foodCollection = items.collection<Food>('platos');
+     this.foods = this.foodCollection.snapshotChanges().pipe(
+       map(actions => actions.map(a => {
+         const data = a.payload.doc.data() as Food;
+         const id = a.payload.doc.id;
+         return { id, ...data };
+       }))
+     );
   }
 
- 
+  updateFood(food: Food){
+    this.foodDoc = this.items.doc(`platos/${food.id}`);
+    this.foodDoc.update(food);
+  }
+
+  getPlatos1(){
+    return this.foods;
+  }
+  
   getBoards(): Observable<any> {
     return new Observable((observer) => {
       this.ref.onSnapshot((querySnapshot) => {
