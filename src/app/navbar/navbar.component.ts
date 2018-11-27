@@ -35,6 +35,7 @@ export class NavbarComponent implements OnInit {
     { this.authService.logout()
       .then((res) =>{
         //agregar pop up de aceptar
+        this.router.navigate(['/signin']);
       })
       .catch((err)=> this.error = err);  }
     

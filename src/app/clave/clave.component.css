@@ -32,19 +32,21 @@
     position: sticky;
 
 }
- @media only screen and (min-width: 768px) {
-    #burguer{
-        height: 30px;
-        width: 30px;
-        align-content: center;
-    }
+
+input{
+    margin-bottom: 15px;
+    border: 10px;
 }
 
-@media only screen and (max-width: 768px) {
-    #burguer{
-        height: 0px;
-        width: 0px;
-    }
+
+h2{
+    width: 70%;
+    margin: auto;
+}
+
+h2 mat-form-field{
+ 
+  margin-bottom: 10px;
 }
 
 

@@ -40,7 +40,6 @@ export class SigninComponent implements OnInit {
   onSubmitAddUser() { { this.authService.registerUser(this.emailRe, this.passwordRe, this.name)
     .then((res) =>{
       //agregar pop up de aceptar
-
       
     })
     .catch((err)=> this.error = err);  }}
